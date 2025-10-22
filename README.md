@@ -1,111 +1,66 @@
-# Deploy en Cloudflare Pages
+# 🌐 Prodelaya Landing Page
 
-## Opción 1: Deploy automático desde GitHub (RECOMENDADO)
+Landing page oficial de **Prodelaya**, desarrollada como parte del sitio web [prodelaya.dev](https://prodelaya.dev).  
+El objetivo de esta página es ofrecer una presentación profesional y moderna de la marca, con un diseño limpio, responsive y optimizado para SEO.
 
-### 1. Subir código a GitHub
-```bash
-git init
-git add index.html styles.css script.js
-git commit -m "Initial commit: Landing portfolio"
-git branch -M main
-git remote add origin https://github.com/Prodelaya/prodelaya-landing.git
-git push -u origin main
+---
+
+## 🧩 Tecnologías utilizadas
+
+- **HTML5** → Estructura semántica del contenido.
+- **CSS3** → Estilos visuales y diseño responsive (flexbox, grid, media queries).
+- **JavaScript (ES6)** → Interactividad básica y carga dinámica de elementos.
+- **Git & GitHub** → Control de versiones y despliegue remoto.
+
+---
+
+## ⚙️ Estructura del proyecto
+
+```
+prodelaya-landing/
+├── index.html      # Estructura principal del sitio
+├── styles.css      # Estilos globales
+└── script.js       # Lógica e interactividad
 ```
 
-### 2. Conectar con Cloudflare Pages
-1. Ir a [Cloudflare Dashboard](https://dash.cloudflare.com/)
-2. **Workers & Pages** → **Create Application** → **Pages** → **Connect to Git**
-3. Seleccionar repositorio `prodelaya-landing`
-4. Configuración de build:
-   - **Framework preset:** None
-   - **Build command:** (vacío)
-   - **Build output directory:** `/`
-5. **Save and Deploy**
+---
 
-### 3. Configurar dominio personalizado
-1. En la página del proyecto → **Custom domains**
-2. **Set up a custom domain** → `prodelaya.dev`
-3. Cloudflare configurará el DNS automáticamente
+## 🚀 Despliegue
 
-**Tiempo estimado:** 2-3 minutos hasta que esté live
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/Prodelaya/prodelaya-landing.git
+   cd prodelaya-landing
+   ```
+
+2. Abrir el archivo `index.html` en tu navegador o configurar un servidor local:
+   ```bash
+   npx serve
+   ```
+
+3. (Opcional) Si usas GitHub Pages:
+   - Activa Pages en la rama `main` desde los ajustes del repositorio.
+   - Accede al sitio en `https://prodelaya.github.io/prodelaya-landing/`
 
 ---
 
-## Opción 2: Deploy manual (sin GitHub)
+## 🧠 Conceptos aplicados
 
-### 1. Preparar archivos
-Asegúrate de tener en una carpeta:
-```
-portfolio/
-├── index.html
-├── styles.css
-└── script.js
-```
-
-### 2. Deploy directo
-1. **Cloudflare Dashboard** → **Workers & Pages** → **Create** → **Pages**
-2. **Upload assets** (arrastrar carpeta)
-3. **Deploy site**
-
-### 3. Configurar dominio
-(Igual que Opción 1, paso 3)
+- Diseño responsive mobile-first  
+- Separación de responsabilidades (HTML/CSS/JS)  
+- Uso de commits semánticos (`feat`, `fix`, `style`, `refactor`, etc.)  
+- Control de versiones con ramas (`main`, `dev`, `feature/*`)  
 
 ---
 
-## Verificación Post-Deploy
+## 📄 Licencia
 
-### Checklist:
-- [ ] HTTPS activo (certificado automático)
-- [ ] Typing effect funciona
-- [ ] Animaciones AOS se disparan al scroll
-- [ ] Links externos abren en nueva pestaña
-- [ ] Responsive en móvil (usar DevTools)
-- [ ] Meta tags Open Graph (compartir en redes)
-
-### Lighthouse Score esperado:
-- Performance: 95-100
-- Accessibility: 95-100
-- Best Practices: 100
-- SEO: 100
+Este proyecto está licenciado bajo la [MIT License](LICENSE).
 
 ---
 
-## Actualización de contenido
+## ✨ Autor
 
-### Cambios rápidos:
-```bash
-# Editar archivos localmente
-nano index.html  # o tu editor favorito
-
-# Push a GitHub (deploy automático)
-git add .
-git commit -m "Update: descripción del cambio"
-git push
-```
-
-**Cloudflare rebuildeará automáticamente en ~30 segundos.**
-
----
-
-## Troubleshooting
-
-### Problema: "Estilos no cargan"
-**Causa:** Rutas relativas incorrectas  
-**Solución:** Verificar que `styles.css` y `script.js` estén en la raíz
-
-### Problema: "AOS no funciona"
-**Causa:** Script carga antes que la librería  
-**Solución:** Ya resuelto con `DOMContentLoaded` en script.js
-
-### Problema: "Dominio no resuelve"
-**Causa:** DNS propagation en curso  
-**Solución:** Esperar 5-10 minutos, usar [whatsmydns.net](https://www.whatsmydns.net/)
-
----
-
-## Optimizaciones futuras (v2.0)
-
-- [ ] Minificar CSS/JS (Cloudflare lo hace automáticamente)
-- [ ] Lazy load de Font Awesome (solo iconos usados)
-- [ ] Service Worker para PWA
-- [ ] Agregar analytics (Cloudflare Web Analytics gratuito)
+**Pablo [Prodelaya]**  
+Desarrollador Full Stack en formación (DAM/DAW)  
+🔗 [GitHub](https://github.com/Prodelaya)
