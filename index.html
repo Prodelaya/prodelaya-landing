@@ -1,265 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Pablo Laya - Backend Python Developer especializado en scraping, automatización e integración de IA">
-    <meta name="author" content="Pablo Laya">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Pablo Laya - Backend Python Developer">
-    <meta property="og:description" content="Portfolio de proyectos: Bots de Telegram, Web Scraping y Aplicaciones Full Stack">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://prodelaya.dev">
-    
-    <title>Pablo Laya | Backend Python Developer</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="assets/favicon-16.png?v=1" sizes="16x16" type="image/png">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    
-    <!-- Estilos -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Pablo Laya, desarrollador de software para automatización, integraciones y herramientas internas.">
+  <meta name="author" content="Pablo Laya">
+  <meta property="og:title" content="Pablo Laya · Desarrollador de software">
+  <meta property="og:description" content="Software para automatizar trabajo real.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://prodelaya.dev">
+  <title>Pablo Laya · Desarrollador de software</title>
+  <link rel="icon" href="assets/favicon-16.png?v=1" sizes="16x16" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- HERO SECTION -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-                <h1 class="hero-title">
-                    Hola, soy <span class="gradient-text">Pablo Laya</span>
-                </h1>
-                <div class="hero-subtitle">
-                    <span id="typing-text"></span>
-                    <span class="cursor">|</span>
-                </div>
-                <p class="hero-description">
-                    Estudiante de DAM/DAW y Máster en Desarrollo con IA (Big School).
-                    Especializado en backend Python, scraping, automatización e integración de IA.
-                </p>
-                
-                <div class="social-links">
-                    <a href="https://github.com/Prodelaya" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                    <button id="emailBtn" class="social-link" aria-label="Email" title="Copiar email">
-                        <i class="fa-solid fa-envelope"></i>
-                    </button>
-                    <a href="https://www.linkedin.com/in/pablo-laya-bol%C3%ADvar/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="assets/cv-pablo-laya.pdf" target="_blank" rel="noopener" class="social-link" aria-label="Ver CV">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 26 26">
-                        <g fill="currentColor">
-                        <path d="M10.8 9.35c.56 0 1.01-.45 1.01-1.01s-.45-1.01-1.01-1.01s-1.01.45-1.01 1.01s.45 1.01 1.01 1.01"/>
-                        <path fill-rule="evenodd" d="M12.83 11.55c0-1.08-.91-1.86-2.03-1.86s-2.03.78-2.03 1.86v.51c0 .09.04.18.1.24s.15.1.24.1h3.38c.09 0 .18-.04.24-.1s.1-.15.1-.24zM8.75 14.5a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75m0 3a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/>
-                        <path fill-rule="evenodd" d="M5.5 5.5c0-1.102.898-2 2-2h6.69c.562 0 1.092.238 1.465.631l.006.007l4.312 4.702c.359.383.527.884.527 1.36v10.3c0 1.102-.898 2-2 2h-11c-1.102 0-2-.898-2-2zm8.689 0H7.5v15h11V10.192l-4.296-4.685l-.003-.001z" clip-rule="evenodd"/>
-                        <path fill-rule="evenodd" d="M14.19 3.5a1 1 0 0 1 1 1v4.7h4.31a1 1 0 1 1 0 2h-5.31a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1" clip-rule="evenodd"/>
-                        <path fill-rule="evenodd" d="M13 24c6.075 0 11-4.925 11-11S19.075 2 13 2S2 6.925 2 13s4.925 11 11 11m0 2c7.18 0 13-5.82 13-13S20.18 0 13 0S0 5.82 0 13s5.82 13 13 13" clip-rule="evenodd"/>
-                        </g>
-                    </svg>
-                    </a>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-
-
-
-                </div>
-                
-                <a href="#projects" class="btn-primary scroll-btn">
-                    Ver Proyectos
-                    <i class="fa-solid fa-arrow-down"></i>
-                </a>
-            </div>
-        </div>
-        
-        <!-- Scroll indicator -->
-        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1000">
-            <div class="mouse"></div>
-        </div>
-    </section>
-
-    <!-- TECH STACK SECTION -->
-    <section class="tech-stack" id="tech-stack">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Tech Stack</h2>
-            <div class="tech-grid">
-                <div class="tech-item" data-aos="zoom-in" data-aos-delay="100">
-                    <i class="fa-brands fa-python"></i>
-                    <span>Python</span>
-                </div>
-                <div class="tech-item" data-aos="zoom-in" data-aos-delay="150">
-                    <i class="fa-solid fa-database"></i>
-                    <span>PostgreSQL</span>
-                </div>
-                <div class="tech-item" data-aos="zoom-in" data-aos-delay="200">
-                    <i class="fa-brands fa-docker"></i>
-                    <span>Docker</span>
-                </div>
-                <div class="tech-item" data-aos="zoom-in" data-aos-delay="250">
-                    <i class="fa-solid fa-bolt"></i>
-                    <span>FastAPI</span>
-                </div>
-                <div class="tech-item" data-aos="zoom-in" data-aos-delay="300">
-                    <i class="fa-brands fa-telegram"></i>
-                    <span>Telegram API</span>
-                </div>
-                <div class="tech-item" data-aos="zoom-in" data-aos-delay="350">
-                    <i class="fa-solid fa-spider"></i>
-                    <span>Web Scraping</span>
-                </div>
-                <div class="tech-item" data-aos="zoom-in" data-aos-delay="400">
-                    <i class="fa-brands fa-react"></i>
-                    <span>React</span>
-                </div>
-                <div class="tech-item" data-aos="zoom-in" data-aos-delay="450">
-                    <i class="fa-brands fa-node-js"></i>
-                    <span>Node.js</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Proyectos Destacados</h2>
-            
-            <div class="timeline">
-                <!-- Project 1: Tests DAW -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-number">01</div>
-                    <div class="project-content">
-                        <div class="project-icon" style="color: #3fb950;">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <h3 class="project-title">Tests DAW - Plataforma de Evaluación</h3>
-                        <div class="tech-badges">
-                            <span class="badge">React</span>
-                            <span class="badge">TypeScript</span>
-                            <span class="badge">Node.js</span>
-                            <span class="badge">PostgreSQL</span>
-                            <span class="badge">Prisma</span>
-                        </div>
-                        <p class="project-description">
-                            Sistema fullstack de evaluación interactiva con doble modo (Práctica/Examen), 
-                            estadísticas detalladas y ranking gamificado. Arquitectura MVC con autenticación JWT 
-                            y 181 preguntas de DWEC.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://github.com/Prodelaya/proyecto-daw-tests" target="_blank" rel="noopener" class="btn-secondary">
-                                <i class="fa-brands fa-github"></i> Código
-                            </a>
-                            <a href="https://tests-daw.prodelaya.dev/" target="_blank" rel="noopener" class="btn-primary">
-                                <i class="fa-solid fa-external-link-alt"></i> Demo Live
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Cinema Bot -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-number">02</div>
-                    <div class="project-content">
-                        <div class="project-icon" style="color: #58a6ff;">
-                            <i class="fa-solid fa-film"></i>
-                        </div>
-                        <h3 class="project-title">Cinema Bot Madrid Sur</h3>
-                        <div class="tech-badges">
-                            <span class="badge">Python</span>
-                            <span class="badge">Telegram API</span>
-                            <span class="badge">BeautifulSoup</span>
-                            <span class="badge">Playwright</span>
-                            <span class="badge">Docker</span>
-                        </div>
-                        <p class="project-description">
-                            Bot de Telegram con scraping híbrido (estático + dinámico) para consultar carteleras 
-                            de cines. Integración con TMDb API, containerizado con Docker y desplegado 24/7 en Railway.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://github.com/Prodelaya/bot-cinema-madrid-sur" target="_blank" rel="noopener" class="btn-secondary">
-                                <i class="fa-brands fa-github"></i> Código
-                            </a>
-                            <a href="https://t.me/cinema_sur_madrid_bot" target="_blank" rel="noopener" class="btn-primary">
-                                <i class="fa-brands fa-telegram"></i> Probar Bot
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Test Bot -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-number">03</div>
-                    <div class="project-content">
-                        <div class="project-icon" style="color: #f78166;">
-                            <i class="fa-solid fa-robot"></i>
-                        </div>
-                        <h3 class="project-title">Telegram Test Bot Educativo</h3>
-                        <div class="tech-badges">
-                            <span class="badge">Python</span>
-                            <span class="badge">Telegram API</span>
-                            <span class="badge">SQLite</span>
-                            <span class="badge">python-docx</span>
-                            <span class="badge">Regex</span>
-                        </div>
-                        <p class="project-description">
-                            Bot educativo para practicar tests de DAM/DAW con FSM conversacional, procesamiento ETL 
-                            de documentos y persistencia SQLite. En producción 6+ meses con ~50 usuarios concurrentes.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://github.com/Prodelaya/telegram-test-bot" target="_blank" rel="noopener" class="btn-secondary">
-                                <i class="fa-brands fa-github"></i> Código
-                            </a>
-                            <a href="https://t.me/Tests_Jobie_Bot" target="_blank" rel="noopener" class="btn-primary">
-                                <i class="fa-brands fa-telegram"></i> Probar Bot
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Pablo Laya. Todos los derechos reservados.</p>
-            <div class="footer-links">
-                <a href="https://github.com/Prodelaya" target="_blank" rel="noopener">
-                    <i class="fa-brands fa-github"></i> GitHub
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modal de Email -->
-    <div id="emailModal" class="email-modal">
-        <div class="email-modal-content">
-            <button id="closeModal" class="close-modal">&times;</button>
-            <div class="email-display">proyectos.delaya@gmail.com</div>
-            <button id="copyEmailBtn" class="btn-primary">
-                <i class="fa-solid fa-copy"></i> Copiar Email
-            </button>
-        </div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="Pablo Laya, inicio">PL<span aria-hidden="true">.</span></a>
+      <nav aria-label="Navegación principal">
+        <a href="#casos">Casos</a>
+        <a href="#capacidades">Capacidades</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="nav-contact" href="mailto:proyectos.delaya@gmail.com">Escribir</a>
     </div>
+  </header>
 
-    <!-- Toast de confirmación -->
-    <div id="toast" class="toast">
-        <i class="fa-solid fa-check-circle"></i>
-        <span>Email copiado al portapapeles</span>
+  <main id="contenido">
+    <section class="hero section" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Pablo Laya · Desarrollador de software</p>
+          <h1 id="hero-title">Software para automatizar trabajo real.</h1>
+          <p class="lede">Desarrollo herramientas internas e integraciones que conectan datos, procesos y personas. Combino Python, APIs y Odoo con IA aplicada cuando aporta valor.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#casos">Ver casos <span aria-hidden="true">↓</span></a>
+            <a class="button button-secondary" href="#contacto">Contactar</a>
+          </div>
+          <div class="hero-links" aria-label="Perfiles profesionales">
+            <a href="https://github.com/Prodelaya" target="_blank" rel="noopener noreferrer">GitHub personal <span aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/pablo-laya-bol%C3%ADvar/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <figure class="system-preview" aria-labelledby="preview-caption">
+          <div class="preview-topbar">
+            <span class="preview-dot" aria-hidden="true"></span>
+            <span>Mugiwara · vista de sistema</span>
+            <span class="preview-status">10 perfiles</span>
+          </div>
+          <div class="preview-body">
+            <div class="preview-orbit" aria-hidden="true"><span>Orquestación</span></div>
+            <ul class="role-list" aria-label="Roles ilustrados de Mugiwara">
+              <li><strong>Luffy</strong><span>orquestación</span></li>
+              <li><strong>Franky</strong><span>operaciones</span></li>
+              <li><strong>Robin</strong><span>conocimiento e investigación</span></li>
+              <li><strong>Sanji</strong><span>asistencia personal</span></li>
+              <li><strong>Zoro</strong><span>software</span></li>
+              <li><strong>Chopper</strong><span>revisión de seguridad</span></li>
+              <li><strong>Nami</strong><span>investigación económica</span></li>
+              <li><strong>Jinbe</strong><span>investigación legal · BOE MCP</span></li>
+              <li><strong>Usopp</strong><span>diseño y comunicación</span></li>
+              <li><strong>Brook</strong><span>datos</span></li>
+            </ul>
+          </div>
+          <figcaption id="preview-caption">Recreación ilustrativa · datos ficticios</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section cases-section" id="casos" aria-labelledby="cases-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Casos seleccionados</p>
+          <h2 id="cases-title">Decisiones técnicas para procesos que necesitan claridad.</h2>
+          <p>Una selección de proyectos personales y trabajo profesional descrito sin exponer sistemas internos.</p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card featured">
+            <div class="case-meta"><span>Proyecto personal</span><span>Destacado</span></div>
+            <h3>Mugiwara</h3>
+            <p>Concebí y diseñé Mugiwara y dirigí su implementación asistida por IA: un sistema multiagente autoalojado en Linux con diez roles especializados, gateways de Telegram, herramientas, SOUL.md y capas de memoria.</p>
+            <p>El panel es de lectura en su mayor parte: reúne agentes, conocimiento y estado operativo, con edición limitada de skills. El entorno permanece privado.</p>
+            <p class="tech-line">Linux · Hermes · Telegram · Next.js/FastAPI. Honcho aporta continuidad relacional en los diez perfiles; el panel no muestra Honcho en vivo.</p>
+            <div class="case-links">
+              <a href="https://github.com/asistentes-mugiwara/mugiwara-control-panel" target="_blank" rel="noopener noreferrer">Ver código del panel <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/asistentes-mugiwara/mugiwara-no-hermes" target="_blank" rel="noopener noreferrer">Ver arquitectura <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-meta"><span>Proyecto personal</span><span>Python · SQLite</span></div>
+            <h3>auto-reddit</h3>
+            <p>Orquestador que detecta publicaciones técnicas recientes de una comunidad, las filtra y normaliza, añade contexto con un modelo de lenguaje y prepara borradores para enviarlos por Telegram.</p>
+            <p>La persona revisa, edita y decide si publica: el flujo está diseñado para asistencia, no para publicar automáticamente.</p>
+            <div class="case-links">
+              <a href="https://github.com/Prodelaya/auto-reddit" target="_blank" rel="noopener noreferrer">Ver repositorio <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="case-card professional">
+            <div class="case-meta"><span>Trabajo profesional</span><span>Caso descrito</span></div>
+            <h3>Gestión documental por proyecto</h3>
+            <p>Centralicé la gestión documental con contexto por proyecto: plantillas de inicio, búsqueda y operaciones de archivo controladas para evitar que la información se disperse entre procesos.</p>
+            <p>El enfoque prioriza una estructura mantenible y una navegación clara para que cada equipo trabaje sobre sus propios documentos.</p>
+          </article>
+
+          <article class="case-card professional">
+            <div class="case-meta"><span>Caso profesional</span><span>Descripción del trabajo</span></div>
+            <h3>Integración multifuente con CRM</h3>
+            <p>Diseñé un flujo para conectar varias fuentes con un CRM mediante adaptadores, normalización y una zona de preparación antes de incorporar información al proceso.</p>
+            <p>La deduplicación, la auditoría por ejecución y la revisión humana ayudan a hacer trazable el recorrido de cada dato.</p>
+          </article>
+        </div>
+
+        <div class="other-projects" aria-labelledby="other-title">
+          <div>
+            <p class="eyebrow">Otros proyectos</p>
+            <h2 id="other-title">Más producto y datos.</h2>
+          </div>
+          <ul>
+            <li><a href="https://github.com/Prodelaya/proyecto-daw-tests" target="_blank" rel="noopener noreferrer"><strong>Tests DAW</strong><span>Aplicación con React y TypeScript para practicar, revisar respuestas y consultar el historial de resultados.</span><b aria-hidden="true">↗</b></a></li>
+            <li><a href="https://github.com/Prodelaya/Proyecto-DAW-Juegos-F2P" target="_blank" rel="noopener noreferrer"><strong>F2P Catalog</strong><span>Catálogo SSR con Flask y SQLAlchemy, filtros, paginación, biblioteca y reseñas.</span><b aria-hidden="true">↗</b></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section capabilities-section" id="capacidades" aria-labelledby="capabilities-title">
+      <div class="container">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Capacidades</p>
+          <h2 id="capabilities-title">Del proceso manual a un sistema que se puede entender y revisar.</h2>
+        </div>
+        <div class="capability-grid">
+          <article>
+            <span class="capability-number">01</span>
+            <h3>Integraciones y datos</h3>
+            <p>Conecto fuentes, contratos y modelos de datos para que la información llegue con contexto y trazabilidad.</p>
+            <p class="tag-row">Python <span>APIs</span> SQL <span>FastAPI</span></p>
+          </article>
+          <article>
+            <span class="capability-number">02</span>
+            <h3>Herramientas internas y automatización</h3>
+            <p>Convierto pasos repetidos en flujos manejables, con interfaces y reglas que ayudan a operar mejor.</p>
+            <p class="tag-row">Odoo <span>TypeScript</span> React <span>Next.js</span></p>
+          </article>
+          <article>
+            <span class="capability-number">03</span>
+            <h3>IA aplicada con criterio humano</h3>
+            <p>Uso modelos para clasificar, preparar o proponer; las decisiones relevantes siguen siendo revisables.</p>
+            <p class="tag-row">LLM <span>revisión humana</span> flujos asistidos</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="sobre-mi" aria-labelledby="about-title">
+      <div class="container about-layout">
+        <p class="eyebrow">Sobre mí</p>
+        <div>
+          <h2 id="about-title">El puente entre operaciones, datos y software.</h2>
+          <p>Me interesa el punto donde un proceso manual deja de escalar y una herramienta puede hacerlo más claro. Combino una mirada cercana a operaciones y datos con desarrollo de software para traducir necesidades reales en integraciones y productos internos.</p>
+          <p>Construyo proyectos con IA cuando encaja en el problema y mantengo la revisión humana donde importa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2 id="contact-title">¿Buscas un desarrollador para automatizar procesos e integrar sistemas en tu equipo? Hablemos.</h2>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:proyectos.delaya@gmail.com">proyectos.delaya@gmail.com</a>
+          <button class="copy-email" type="button" data-copy-email hidden>Copiar correo</button>
+          <p class="copy-status" aria-live="polite" aria-atomic="true"></p>
+          <p class="contact-note">CV actualizado disponible bajo solicitud.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>Pablo Laya</span>
+      <div>
+        <a href="https://github.com/Prodelaya" target="_blank" rel="noopener noreferrer">GitHub personal</a>
+        <a href="https://github.com/asistentes-mugiwara" target="_blank" rel="noopener noreferrer">GitHub Mugiwara</a>
+        <a href="https://www.linkedin.com/in/pablo-laya-bol%C3%ADvar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
     </div>
+  </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

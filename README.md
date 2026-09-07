@@ -1,99 +1,29 @@
-# 🌐 Prodelaya Landing
+# Portfolio de Pablo Laya
 
-Landing page personal de **Pablo Laya**, estudiante de DAM/DAW y desarrollador backend especializado en **Python**, **automatización**, **scraping** e **integración de IA**.  
-El proyecto sirve como carta de presentación y punto de acceso central a sus proyectos públicos y redes profesionales.
+Landing estática en español para presentar proyectos de automatización, integraciones, herramientas internas e IA aplicada con revisión humana.
 
----
+## Vista local segura
 
-## 🚀 Descripción General
+El repositorio contiene material privado que no pertenece al sitio. Para revisar la landing, prepara **fuera del repositorio** una carpeta temporal que incluya solo:
 
-**Prodelaya Landing** es una web estática moderna construida con **HTML, CSS y JavaScript puros**, enfocada en la claridad visual, el rendimiento y la accesibilidad.  
-El sitio está desplegado en **Cloudflare Pages** con dominio personalizado [`prodelaya.dev`](https://prodelaya.dev), e integra animaciones, modales interactivos y un diseño responsive adaptado a todos los dispositivos.
+- `index.html`
+- `styles.css`
+- `script.js`
+- los recursos públicos aprobados que use la página
 
----
+Sirve esa carpeta temporal con un servidor HTTP estático. No sirvas la raíz de este repositorio ni publiques `portfolio-material/`.
 
-## 🛠️ Tecnologías Utilizadas
+## Verificación
 
-| Categoría | Tecnologías / Librerías |
-|------------|--------------------------|
-| **Frontend** | HTML5, CSS3 (variables, grid, animaciones), JavaScript (DOM API nativa) |
-| **Fuentes e iconos** | Google Fonts (Inter), Font Awesome 6 |
-| **Animaciones** | AOS (Animate On Scroll) |
-| **Infraestructura** | Cloudflare Pages + GitHub CI/CD |
-| **Dominio y DNS** | Cloudflare (modo “Solo DNS”) con dominio `prodelaya.dev` |
-| **SEO / Social Media** | Metadatos Open Graph + descripción optimizada |
+No requiere instalación ni proceso de compilación. Con Node disponible:
 
----
-
-## 🧩 Estructura del Proyecto
-
-```
-📦 prodelaya-landing
- ┣ 📜 Index.html       → Estructura principal del sitio (3 secciones + footer)
- ┣ 🎨 styles.css       → Tema oscuro modular, responsive y con variables CSS
- ┣ ⚙️ script.js         → Tipado animado, modal de email y notificaciones toast
- ┗ 📁 /assets (opcional) → Recursos gráficos futuros (logos, screenshots, etc.)
+```bash
+node --test tests/landing.test.mjs
+node --check script.js
 ```
 
----
+Las pruebas comprueban invariantes estáticos de contenido, enlaces y privacidad; no sustituyen una revisión visual en navegador ni una auditoría de accesibilidad.
 
-## ⚡ Funcionalidades Principales
+## Publicación
 
-- **Efecto de escritura dinámica** en el subtítulo principal.
-- **Animaciones AOS** al hacer scroll.
-- **Modal interactivo de contacto** con copia al portapapeles y notificación toast.
-- **Diseño responsive** y escalable hasta 4K.
-- **Tech Stack visual** con íconos y animaciones.
-- **Timeline de proyectos destacados** con enlaces directos a GitHub y demos online.
-
----
-
-## 🌍 Despliegue y Configuración
-
-El proyecto se despliega automáticamente con cada commit en el repositorio de GitHub mediante **Cloudflare Pages**:
-
-1. **Repositorio vinculado**: GitHub → Cloudflare Pages  
-2. **Branch principal:** `main`  
-3. **Build command:** *(vacío, sitio estático)*  
-4. **Output directory:** `/`  
-5. **Custom Domain:** [`prodelaya.dev`](https://prodelaya.dev)
-
-### 🔐 Certificado SSL
-
-Cloudflare emite un **certificado gratuito** Let’s Encrypt tras la verificación del dominio.  
-El sitio está servido íntegramente bajo **HTTPS**.
-
----
-
-## 🧠 Problemas y Soluciones Durante el Despliegue
-
-| Problema | Causa | Solución Aplicada |
-|-----------|--------|-------------------|
-| ❌ **404 Not Found** al publicar | Archivo `Index.html` con mayúscula | Renombrado a `index.html` (Cloudflare Pages distingue mayúsculas) |
-| ⚠️ **Error 522 (Connection timed out)** en `www.prodelaya.dev` | Configuración DNS parcial en subdominio | Añadido CNAME `www → prodelaya.pages.dev` y verificado dominio en Cloudflare |
-| 🔒 SSL pendiente / no emitido | Dominio no verificado | Se verificó dominio raíz desde Pages y se activó HTTPS automático |
-| 🌀 Cache inconsistente | Caché activa tras despliegue | Limpiada desde Cloudflare Dashboard tras cada build |
-
----
-
-## 🧾 Licencia
-
-Este proyecto se publica bajo licencia **MIT**, permitiendo libre uso, modificación y redistribución.
-
----
-
-## 👤 Autor
-
-**Pablo Laya**  
-Desarrollador Backend Python | DAM/DAW Student  
-📧 [proyectos.delaya@gmail.com](mailto:proyectos.delaya@gmail.com)  
-🔗 [https://prodelaya.dev](https://prodelaya.dev)  
-🐙 [GitHub: @Prodelaya](https://github.com/Prodelaya)
-
----
-
-## 💡 Próximos Pasos
-
-- Añadir versión con **backend real** (API + chatbot sobre datos personales).  
-- Integrar **RAG con IA** para permitir consultas interactivas sobre el portfolio.  
-- Incorporar sistema de métricas y visitas mediante Cloudflare Analytics.
+La entrega pública solo necesita los archivos estáticos listados arriba y los recursos públicos aprobados. No incluye backend ni dependencias de ejecución.
