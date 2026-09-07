@@ -1,0 +1,35 @@
+{
+  "assets": [
+    {
+      "path": "assets/mugiwara-panel.webp",
+      "kind": "screenshot",
+      "projectId": "mugi",
+      "sourceUrl": "https://raw.githubusercontent.com/asistentes-mugiwara/mugiwara-control-panel/main/public-assets/screenshots/control-panel-home.png",
+      "sourceSha256": "493640b977c5799412cbc914cf5d6133a620fd4d97dd25e171dc71d036f04097",
+      "transform": "Crop 1280x836+0+64; resize to 1200px wide; WebP quality 82; metadata stripped.",
+      "width": 1200,
+      "height": 784,
+      "sha256": "60af997ddef1f10fb9c27cd964af426c6474505d0397035e6431d556bdb6ae63"
+    },
+    {
+      "path": "assets/tests-daw-practice.webp",
+      "kind": "screenshot",
+      "projectId": "tests-daw",
+      "sourceUrl": "https://raw.githubusercontent.com/Prodelaya/proyecto-daw-tests/main/docs/screenshots/05-test-practice.png",
+      "sourceSha256": "fa7f51c007ee054057f9e9f8f165afe433a93399b85292da5525202491f87e1f",
+      "transform": "Crop 910x830+500+185; resize to 1200px wide; WebP quality 82; metadata stripped.",
+      "width": 1200,
+      "height": 1095,
+      "sha256": "e5b5cd5f340c25c5a85a52947a98a6a8aa568de8892f9ba7c1ce0d35592df50f"
+    },
+    {
+      "path": "assets/crm-pipeline.svg",
+      "kind": "conceptual-diagram",
+      "projectId": "crm",
+      "transform": "Self-contained conceptual SVG diagram.",
+      "width": 1200,
+      "height": 360,
+      "sha256": "b45047a62bde4dacaa20d949e740fe489add9f5ff3bd1e0cedc8b3ec7c376416"
+    }
+  ]
+}

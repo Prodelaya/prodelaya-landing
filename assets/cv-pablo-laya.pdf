@@ -7,58 +7,66 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R /Annots [7 0 R 8 0 R 9 0 R 10 0 R] >>
 endobj
 4 0 obj
-<< /Length 3991 >>
+<< /Length 5339 >>
 stream
-BT /F2 18 Tf 48 794 Td (Pablo Laya) Tj ET
-BT /F2 10 Tf 48 773 Td (Desarrollador de automatización e IA aplicada) Tj ET
-BT /F1 9 Tf 48 759 Td (Madrid, España · proyectos.delaya@gmail.com) Tj ET
-BT /F1 9 Tf 48 747 Td (prodelaya.dev · github.com/Prodelaya) Tj ET
-BT /F1 9 Tf 48 735 Td (LinkedIn: linkedin.com/in/pablo-laya-bolívar) Tj ET
-BT /F2 10 Tf 48 716 Td (PERFIL) Tj ET
-BT /F1 10 Tf 48 702 Td (Soy desarrollador junior y antes trabajé en operaciones y datos. Mi foco está en las) Tj ET
-BT /F1 10 Tf 48 690 Td (automatizaciones, las integraciones y las herramientas internas con Python y SQL. Me) Tj ET
-BT /F1 10 Tf 48 678 Td (interesa trabajar cerca de los equipos que las usan y aplicar IA cuando ayuda a resolver) Tj ET
-BT /F1 10 Tf 48 666 Td (un problema concreto.) Tj ET
-BT /F2 10 Tf 48 650 Td (EXPERIENCIA PROFESIONAL) Tj ET
-BT /F2 10 Tf 48 636 Td (Halltic Tech S.L. — julio 2026–actualidad) Tj ET
-BT /F1 9 Tf 48 624 Td (Desarrollador de software) Tj ET
-BT /F1 9.5 Tf 48 613 Td (• Fuentes múltiples para el CRM: integración en Python, normalización, deduplicación y) Tj ET
-BT /F1 9.5 Tf 48 602 Td (registros de ejecución.) Tj ET
-BT /F1 9.5 Tf 48 591 Td (• Herramientas internas en Odoo para documentación, permisos y estados.) Tj ET
-BT /F1 9.5 Tf 48 580 Td (• Digitalización del circuito de documentos de RR. HH.: firma con AutoFirma, DNIe o) Tj ET
-BT /F1 9.5 Tf 48 569 Td (certificado y PAdES.) Tj ET
-BT /F2 10 Tf 48 556 Td (Halltic Tech S.L. — febrero–mayo 2026) Tj ET
-BT /F1 9 Tf 48 544 Td (Prácticas de desarrollo de software) Tj ET
-BT /F1 9.5 Tf 48 533 Td (• Apoyo al desarrollo de aplicaciones y automatizaciones sobre Odoo.) Tj ET
-BT /F1 9.5 Tf 48 522 Td (• Trabajo con documentación, procesos internos e integraciones.) Tj ET
-BT /F2 10 Tf 48 509 Td (Sports Stats Solutions S.L. — junio 2019–octubre 2025) Tj ET
-BT /F1 9 Tf 48 497 Td (Administrativo · automatización de procesos) Tj ET
-BT /F1 9.5 Tf 48 486 Td (• Trabajo administrativo de operaciones y mantenimiento de datos en MySQL; informes y) Tj ET
-BT /F1 9.5 Tf 48 475 Td (seguimiento con Power BI y Excel.) Tj ET
-BT /F1 9.5 Tf 48 464 Td (• Herramientas internas puntuales con Python y Tkinter, incluida automatización de) Tj ET
-BT /F1 9.5 Tf 48 453 Td (email a Telegram.) Tj ET
-BT /F2 10 Tf 48 436 Td (COMPETENCIAS) Tj ET
-BT /F1 9.5 Tf 48 422 Td (Python e integraciones: Python, FastAPI, REST APIs, integraciones) Tj ET
-BT /F1 9.5 Tf 48 411 Td (Datos: SQL, PostgreSQL, MySQL, SQLite) Tj ET
-BT /F1 9.5 Tf 48 400 Td (Automatización e IA: pipelines, bots de Telegram, flujos con LLM, agentes \(proyectos propios\)) Tj ET
-BT /F1 9.5 Tf 48 389 Td (Entorno y despliegue: Linux, Docker, Git) Tj ET
-BT /F1 9.5 Tf 48 378 Td (Aplicaciones de negocio: Odoo, JavaScript, TypeScript, Power BI, Excel) Tj ET
-BT /F2 10 Tf 48 363 Td (FORMACIÓN) Tj ET
-BT /F1 9.5 Tf 48 349 Td (Máster en Desarrollo con IA — Big School · 2025 · finalizado) Tj ET
-BT /F1 9.5 Tf 48 338 Td (FP Superior en Desarrollo de Aplicaciones Web \(DAW\) — Jobie FP · 2024–2026 · finalizado) Tj ET
-BT /F1 9.5 Tf 48 327 Td (FP Superior en Desarrollo de Aplicaciones Multiplataforma \(DAM\) — Jobie FP · en curso) Tj ET
-BT /F2 10 Tf 48 312 Td (PROYECTOS) Tj ET
-BT /F2 9.5 Tf 48 298 Td (auto-reddit — Python · SQLite · Docker · LLM · Telegram) Tj ET
-BT /F1 9.5 Tf 48 287 Td (Pipeline personal que selecciona publicaciones técnicas, prepara borradores de respuesta) Tj ET
-BT /F1 9.5 Tf 48 276 Td (con LLM y los envía a Telegram para revisión humana. No publica automáticamente.) Tj ET
-BT /F2 9.5 Tf 48 265 Td (Mugiwara — Linux · Hermes · Telegram · 10 agentes) Tj ET
-BT /F1 9.5 Tf 48 254 Td (Concepción y diseño propios de un sistema de diez agentes en Linux con Hermes y) Tj ET
-BT /F1 9.5 Tf 48 243 Td (Telegram; dirección y revisión de una implementación asistida por IA.) Tj ET
-BT /F2 9.5 Tf 48 232 Td (Tests DAW y F2P — React · TypeScript · Flask · SQLAlchemy) Tj ET
-BT /F1 9.5 Tf 48 221 Td (Proyectos propios de aprendizaje con repositorios y demos públicas.) Tj ET
+BT /F2 17 Tf 0.12 0.09 0.15 rg 48.0 800.0 Td (Pablo Laya) Tj ET
+BT /F2 10.5 Tf 0.42 0.06 0.27 rg 48.0 780.0 Td (Desarrollador de software) Tj ET
+BT /F2 10.5 Tf 0.42 0.06 0.27 rg 48.0 768.0 Td (Automatización, herramientas internas e IA aplicada) Tj ET
+BT /F1 9 Tf 0.12 0.09 0.15 rg 48.0 755.0 Td (Madrid, España) Tj ET
+BT /F1 9 Tf 0.12 0.09 0.15 rg 48.0 744.5 Td (proyectos.delaya@gmail.com) Tj ET
+BT /F1 9 Tf 0.12 0.09 0.15 rg 48.0 733.5 Td (prodelaya.dev) Tj ET
+BT /F1 9 Tf 0.12 0.09 0.15 rg 48.0 722.5 Td (github.com/Prodelaya) Tj ET
+BT /F1 9 Tf 0.12 0.09 0.15 rg 48.0 711.5 Td (linkedin.com/in/pablo-laya-bolívar) Tj ET
+q 0.67 0.10 0.42 RG 0.8 w 48 692.5 m 547 692.5 l S Q
+BT /F2 10 Tf 0.42 0.06 0.27 rg 48.0 696.5 Td (PERFIL) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 683.5 Td (Desarrollador de software con experiencia previa en operaciones y datos. Creo automatizaciones,) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 672.0 Td (  integraciones y herramientas internas con Python y SQL, y aplico IA cuando aporta una mejora concreta.) Tj ET
+q 0.67 0.10 0.42 RG 0.8 w 48 652.5 m 547 652.5 l S Q
+BT /F2 10 Tf 0.42 0.06 0.27 rg 48.0 656.5 Td (EXPERIENCIA PROFESIONAL) Tj ET
+BT /F2 10 Tf 0.12 0.09 0.15 rg 48.0 643.5 Td (Halltic Tech S.L. — julio 2026–actualidad) Tj ET
+BT /F1 10 Tf 0.42 0.06 0.27 rg 48.0 631.5 Td (Desarrollador de software) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 620.5 Td (• Integraciones multifuente hacia CRM con adaptadores independientes, normalización, deduplicación y) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 609.0 Td (  auditoría de ejecuciones.) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 597.5 Td (• Herramientas internas en Odoo para documentos, permisos y estados.) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 586.0 Td (• Circuito de documentos de RR. HH. con AutoFirma, DNIe o certificado y PAdES.) Tj ET
+BT /F2 10 Tf 0.12 0.09 0.15 rg 48.0 573.0 Td (Halltic Tech S.L. — febrero–mayo 2026) Tj ET
+BT /F1 10 Tf 0.42 0.06 0.27 rg 48.0 561.0 Td (Prácticas de desarrollo de software) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 550.0 Td (• Apoyo al desarrollo de aplicaciones y automatizaciones sobre Odoo.) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 538.5 Td (• Trabajo con documentación, procesos internos e integraciones.) Tj ET
+BT /F2 10 Tf 0.12 0.09 0.15 rg 48.0 525.5 Td (Sports Stats Solutions S.L. — junio 2019–octubre 2025) Tj ET
+BT /F1 10 Tf 0.42 0.06 0.27 rg 48.0 513.5 Td (Administrativo · automatización de procesos) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 502.5 Td (• Operaciones y mantenimiento de datos en MySQL; informes y seguimiento con Power BI y Excel.) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 491.0 Td (• Herramientas internas puntuales con Python y Tkinter, incluida automatización de email a Telegram.) Tj ET
+q 0.67 0.10 0.42 RG 0.8 w 48 470.0 m 547 470.0 l S Q
+BT /F2 10 Tf 0.42 0.06 0.27 rg 48.0 474.0 Td (COMPETENCIAS) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 461.0 Td (Python e integraciones: Python, FastAPI, REST APIs, integraciones) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 449.5 Td (Datos: SQL, PostgreSQL, MySQL, SQLite) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 438.0 Td (Automatización e IA: pipelines, bots de Telegram, flujos con LLM, agentes \(proyectos propios\)) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 426.5 Td (Entorno y despliegue: Linux, Docker, Git) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 415.0 Td (Aplicaciones de negocio: Odoo, JavaScript, TypeScript, Power BI, Excel) Tj ET
+q 0.67 0.10 0.42 RG 0.8 w 48 395.5 m 547 395.5 l S Q
+BT /F2 10 Tf 0.42 0.06 0.27 rg 48.0 399.5 Td (IDIOMAS) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 386.5 Td (Español nativo) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 375.5 Td (Inglés: B2 lectura y escritura; B1 oral \(autoevaluación\)) Tj ET
+q 0.67 0.10 0.42 RG 0.8 w 48 356.5 m 547 356.5 l S Q
+BT /F2 10 Tf 0.42 0.06 0.27 rg 48.0 360.5 Td (FORMACIÓN) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 347.5 Td (Máster en Desarrollo con IA — Big School · 2026 · finalizado) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 336.5 Td (FP Superior en Desarrollo de Aplicaciones Web \(DAW\) — Jobie FP · 2024–2026 · finalizado) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 325.5 Td (FP Superior en Desarrollo de Aplicaciones Multiplataforma \(DAM\) — Jobie FP · en curso) Tj ET
+q 0.67 0.10 0.42 RG 0.8 w 48 306.5 m 547 306.5 l S Q
+BT /F2 10 Tf 0.42 0.06 0.27 rg 48.0 310.5 Td (PROYECTOS SELECCIONADOS) Tj ET
+BT /F2 10 Tf 0.12 0.09 0.15 rg 48.0 297.5 Td (auto-reddit) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 286.0 Td (Pipeline con Python, Pydantic, SQLite, Docker y LLM que prepara borradores para revisión humana en) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 274.5 Td (  Telegram; no publica automáticamente.) Tj ET
+BT /F2 10 Tf 0.12 0.09 0.15 rg 48.0 263.0 Td (Mugiwara — plataforma operativa multiagente) Tj ET
+BT /F1 10 Tf 0.42 0.06 0.27 rg 48.0 251.5 Td (Linux · Next.js · FastAPI · Tailscale) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 240.5 Td (Arquitectura y operación en Linux de una plataforma multiagente; los agentes apoyan implementación,) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 229.0 Td (  documentación y revisión.) Tj ET
+BT /F2 10 Tf 0.12 0.09 0.15 rg 48.0 217.5 Td (Tests DAW) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 206.0 Td (Producto full stack con React, TypeScript, Express, Prisma y PostgreSQL para práctica y examen.) Tj ET
 endstream
 endobj
 5 0 obj
@@ -67,17 +75,33 @@ endobj
 6 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
+7 0 obj
+<< /Type /Annot /Subtype /Link /Rect [48.0 742.0 162.7 752.5] /Border [0 0 0] /A << /S /URI /URI (mailto:proyectos.delaya@gmail.com) >> >>
+endobj
+8 0 obj
+<< /Type /Annot /Subtype /Link /Rect [48.0 731.0 105.3 741.5] /Border [0 0 0] /A << /S /URI /URI (https://prodelaya.dev) >> >>
+endobj
+9 0 obj
+<< /Type /Annot /Subtype /Link /Rect [48.0 720.0 136.2 730.5] /Border [0 0 0] /A << /S /URI /URI (https://github.com/Prodelaya) >> >>
+endobj
+10 0 obj
+<< /Type /Annot /Subtype /Link /Rect [48.0 709.0 197.9 719.5] /Border [0 0 0] /A << /S /URI /URI (https://linkedin.com/in/pablo-laya-bol%C3%ADvar) >> >>
+endobj
 xref
-0 7
+0 11
 0000000000 65535 f
 0000000015 00000 n
 0000000064 00000 n
 0000000121 00000 n
-0000000257 00000 n
-0000004299 00000 n
-0000004396 00000 n
+0000000292 00000 n
+0000005682 00000 n
+0000005779 00000 n
+0000005881 00000 n
+0000006035 00000 n
+0000006177 00000 n
+0000006326 00000 n
 trailer
-<< /Size 7 /Root 1 0 R >>
+<< /Size 11 /Root 1 0 R >>
 startxref
-4498
+6495
 %%EOF

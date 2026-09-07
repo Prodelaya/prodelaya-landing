@@ -1,13 +1,15 @@
 {
   "profile": {
     "name": "Pablo Laya",
-    "role": "Desarrollador de automatización e IA aplicada",
+    "role": "Desarrollador de software",
+    "specialty": "Automatización, herramientas internas e IA aplicada",
     "location": "Madrid, España",
     "email": "proyectos.delaya@gmail.com",
-    "website": "prodelaya.dev",
-    "github": "github.com/Prodelaya",
-    "linkedin": "linkedin.com/in/pablo-laya-bol%C3%ADvar",
-    "summary": "Soy desarrollador junior y antes trabajé en operaciones y datos. Mi foco está en las automatizaciones, las integraciones y las herramientas internas con Python y SQL. Me interesa trabajar cerca de los equipos que las usan y aplicar IA cuando ayuda a resolver un problema concreto."
+    "website": "https://prodelaya.dev",
+    "github": "https://github.com/Prodelaya",
+    "linkedin": "https://linkedin.com/in/pablo-laya-bol%C3%ADvar",
+    "mugiwaraGithub": "https://github.com/asistentes-mugiwara",
+    "summary": "Desarrollador de software con experiencia previa en operaciones y datos. Creo automatizaciones, integraciones y herramientas internas con Python y SQL, y aplico IA cuando aporta una mejora concreta."
   },
   "experience": [
     {
@@ -15,9 +17,9 @@
       "role": "Desarrollador de software",
       "dates": "julio 2026–actualidad",
       "details": [
-        "Fuentes múltiples para el CRM: integración en Python, normalización, deduplicación y registros de ejecución.",
-        "Herramientas internas en Odoo para documentación, permisos y estados.",
-        "Digitalización del circuito de documentos de RR. HH.: firma con AutoFirma, DNIe o certificado y PAdES."
+        "Integraciones multifuente hacia CRM con adaptadores independientes, normalización, deduplicación y auditoría de ejecuciones.",
+        "Herramientas internas en Odoo para documentos, permisos y estados.",
+        "Circuito de documentos de RR. HH. con AutoFirma, DNIe o certificado y PAdES."
       ]
     },
     {
@@ -34,23 +36,42 @@
       "role": "Administrativo · automatización de procesos",
       "dates": "junio 2019–octubre 2025",
       "details": [
-        "Trabajo administrativo de operaciones y mantenimiento de datos en MySQL; informes y seguimiento con Power BI y Excel.",
+        "Operaciones y mantenimiento de datos en MySQL; informes y seguimiento con Power BI y Excel.",
         "Herramientas internas puntuales con Python y Tkinter, incluida automatización de email a Telegram."
       ]
     }
   ],
   "skills": [
-    ["Python e integraciones", "Python, FastAPI, REST APIs, integraciones"],
-    ["Datos", "SQL, PostgreSQL, MySQL, SQLite"],
-    ["Automatización e IA", "pipelines, bots de Telegram, flujos con LLM, agentes (proyectos propios)"],
-    ["Entorno y despliegue", "Linux, Docker, Git"],
-    ["Aplicaciones de negocio", "Odoo, JavaScript, TypeScript, Power BI, Excel"]
+    {
+      "label": "Python e integraciones",
+      "value": "Python, FastAPI, REST APIs, integraciones"
+    },
+    {
+      "label": "Datos",
+      "value": "SQL, PostgreSQL, MySQL, SQLite"
+    },
+    {
+      "label": "Automatización e IA",
+      "value": "pipelines, bots de Telegram, flujos con LLM, agentes (proyectos propios)"
+    },
+    {
+      "label": "Entorno y despliegue",
+      "value": "Linux, Docker, Git"
+    },
+    {
+      "label": "Aplicaciones de negocio",
+      "value": "Odoo, JavaScript, TypeScript, Power BI, Excel"
+    }
+  ],
+  "languages": [
+    "Español nativo",
+    "Inglés: B2 lectura y escritura; B1 oral (autoevaluación)"
   ],
   "education": [
     {
       "organization": "Big School",
       "title": "Máster en Desarrollo con IA",
-      "dates": "2025 · finalizado"
+      "dates": "2026 · finalizado"
     },
     {
       "organization": "Jobie FP",
@@ -65,19 +86,202 @@
   ],
   "projects": [
     {
-      "name": "auto-reddit",
-      "tech": "Python · SQLite · Docker · LLM · Telegram",
-      "summary": "Pipeline personal que selecciona publicaciones técnicas, prepara borradores de respuesta con LLM y los envía a Telegram para revisión humana. No publica automáticamente."
+      "id": "mugi",
+      "title": "Mugiwara — plataforma operativa multiagente",
+      "privacy": "public",
+      "category": "Proyecto personal",
+      "tech": "Linux · Hermes · Telegram · Engram · Honcho · Vault · Next.js · FastAPI · systemd · Tailscale",
+      "cvtech": "Linux · Next.js · FastAPI · Tailscale",
+      "links": [
+        {
+          "label": "Repositorio del panel",
+          "url": "https://github.com/asistentes-mugiwara/mugiwara-control-panel"
+        },
+        {
+          "label": "Arquitectura",
+          "url": "https://github.com/asistentes-mugiwara/mugiwara-no-hermes"
+        }
+      ],
+      "landing": [
+        "Diseñé la arquitectura, los roles, la memoria y los límites de acceso; también opero el sistema en Linux. Un equipo de agentes especializados apoya la implementación, la documentación y la revisión.",
+        "El ecosistema conecta panel Next.js/FastAPI, Hermes, Telegram, Engram, Honcho y Vault. Tailscale resuelve el acceso privado y systemd gestiona los servicios."
+      ],
+      "cvsummary": "Arquitectura y operación en Linux de una plataforma multiagente; los agentes apoyan implementación, documentación y revisión.",
+      "techGroups": [
+        {
+          "label": "Aplicación",
+          "value": "Next.js · FastAPI"
+        },
+        {
+          "label": "Operación",
+          "value": "Linux · systemd · Tailscale"
+        }
+      ],
+      "techDetail": "Agentes y memoria: Hermes · Telegram · Engram · Honcho · Vault",
+      "metric": {
+        "value": "10",
+        "label": "agentes especializados",
+        "detail": "Arquitectura de usuario documentada."
+      },
+      "visual": {
+        "path": "assets/mugiwara-panel.webp",
+        "kind": "screenshot",
+        "alt": "Panel de control de Mugiwara con navegación y tarjetas de estado",
+        "caption": "Recorte de una captura pública del panel privado de Mugiwara."
+      }
     },
     {
-      "name": "Mugiwara",
-      "tech": "Linux · Hermes · Telegram · 10 agentes",
-      "summary": "Concepción y diseño propios de un sistema de diez agentes en Linux con Hermes y Telegram; dirección y revisión de una implementación asistida por IA."
+      "id": "crm",
+      "title": "Integración multifuente hacia CRM",
+      "privacy": "professional",
+      "category": "Trabajo profesional",
+      "tech": "Python · adaptadores · normalización · auditoría",
+      "links": [],
+      "landing": [
+        "El problema era incorporar datos de orígenes distintos sin perder trazabilidad ni repetir registros. Implementé adaptadores independientes, con staging y normalización antes de llegar al CRM.",
+        "La integración resuelve identificadores externos y URL canónicas para deduplicar, y registra cada ejecución para revisión. Puede ejecutarse manualmente o programada."
+      ],
+      "cvsummary": "Integración de cuatro proveedores hacia CRM con staging, normalización, deduplicación y auditoría de ejecuciones.",
+      "metric": {
+        "value": "4",
+        "label": "proveedores implementados",
+        "detail": "Adaptadores independientes; no todos los cron están activos."
+      },
+      "visual": {
+        "path": "assets/crm-pipeline.svg",
+        "kind": "conceptual-diagram",
+        "alt": "Diagrama del flujo de cuatro fuentes hacia CRM mediante staging, normalización y deduplicación",
+        "caption": "Esquema conceptual del flujo, sin datos ni infraestructura del proyecto."
+      }
     },
     {
-      "name": "Tests DAW y F2P",
-      "tech": "React · TypeScript · Flask · SQLAlchemy",
-      "summary": "Proyectos propios de aprendizaje con repositorios y demos públicas."
+      "id": "signature",
+      "title": "Firma de documentos con DNIe",
+      "privacy": "professional",
+      "category": "Trabajo profesional",
+      "tech": "Odoo · JavaScript · AutoFirma · DNIe · certificado · PAdES",
+      "links": [],
+      "landing": [
+        "Implementé un circuito local para que RR. HH. prepare documentos y las personas los firmen con AutoFirma, DNIe o certificado. El backend y los controladores coordinan el flujo sin sacar la clave privada del dispositivo de firma.",
+        "Incluye permisos, estados, validación criptográfica local y firma PAdES."
+      ],
+      "cvsummary": "Circuito interno de firma de documentos con AutoFirma, DNIe o certificado, PAdES, permisos y estados."
+    },
+    {
+      "id": "auto-reddit",
+      "title": "auto-reddit",
+      "privacy": "public",
+      "category": "Proyecto académico y personal",
+      "tech": "Python · Pydantic · SQLite · Docker · LLM · Telegram",
+      "links": [
+        {
+          "label": "Repositorio",
+          "url": "https://github.com/Prodelaya/auto-reddit"
+        }
+      ],
+      "landing": [
+        "Pipeline para seleccionar conversaciones técnicas, evaluarlas con LLM y preparar borradores de respuesta. Pydantic, SQLite y Docker ayudan a mantener el flujo repetible.",
+        "Los borradores llegan a Telegram antes de su publicación. La deduplicación y la entrega idempotente evitan repeticiones; no publica automáticamente."
+      ],
+      "cvsummary": "Pipeline con Python, Pydantic, SQLite, Docker y LLM que prepara borradores para revisión humana en Telegram; no publica automáticamente.",
+      "metric": {
+        "value": "Programación opcional",
+        "label": "y revisión humana",
+        "detail": "Los borradores se revisan antes de publicar."
+      }
+    },
+    {
+      "id": "documents",
+      "title": "Gestión documental por proyecto",
+      "privacy": "professional",
+      "category": "Trabajo profesional",
+      "tech": "Odoo · permisos · documentos",
+      "links": [],
+      "landing": [
+        "Herramienta de documentos por proyecto para empezar con carpetas y plantillas consistentes. La provisión es idempotente y puede reparar la estructura cuando hace falta.",
+        "Soporta carga y descarga con alcance definido, búsqueda, renombrado, movimiento, borrado, reemplazo y previsualización segura."
+      ],
+      "cvsummary": "Herramienta documental por proyecto con provisión idempotente, permisos y operaciones de archivo con alcance definido."
+    },
+    {
+      "id": "employee-operations",
+      "title": "Automatización de operaciones de empleados",
+      "privacy": "professional",
+      "category": "Trabajo profesional",
+      "tech": "Python · Odoo · Telegram",
+      "links": [],
+      "landing": [
+        "Al cerrar la jornada, comparé la asistencia con las horas reportadas para detectar excepciones y dejar una actividad para su revisión.",
+        "Construí recordatorios por Telegram con aplazamiento y reglas configurables; si no se resuelven las excepciones, el flujo aplica una programación de respaldo, conserva historial y evita duplicar actividades del responsable."
+      ],
+      "cvsummary": "Automatización de operaciones de empleados con Odoo y recordatorios por Telegram."
+    },
+    {
+      "id": "private-data",
+      "title": "Sistemas cuantitativos y de datos",
+      "privacy": "private",
+      "category": "Proyecto privado",
+      "tech": "Python · datos · deduplicación · PostgreSQL (opcional)",
+      "links": [],
+      "landing": [
+        "Diseñé un flujo de recogida y normalización de datos con identidad estable, reanudación y deduplicación para comparar ejecuciones de forma reproducible. El trabajo incluye planificación acotada, salidas trazables e integración opcional con PostgreSQL."
+      ],
+      "cvsummary": "Flujo de datos con identidad estable, reanudación, deduplicación e integración opcional con PostgreSQL."
+    },
+    {
+      "id": "tests-daw",
+      "title": "Tests DAW",
+      "privacy": "public",
+      "category": "Proyecto académico y personal",
+      "tech": "React · TypeScript · Express · Prisma · PostgreSQL",
+      "links": [
+        {
+          "label": "Repositorio",
+          "url": "https://github.com/Prodelaya/proyecto-daw-tests"
+        },
+        {
+          "label": "Ver demo",
+          "url": "https://tests-daw.prodelaya.dev/"
+        }
+      ],
+      "landing": [
+        "Producto full stack para practicar y examinarse: autenticación, estadísticas, ranking, práctica, examen y revisión de fallos.",
+        "Incluye un banco de preguntas documentado. El repositorio y la demo permiten revisar el proyecto."
+      ],
+      "cvsummary": "Producto full stack con React, TypeScript, Express, Prisma y PostgreSQL para práctica y examen.",
+      "metric": {
+        "value": "211",
+        "label": "preguntas documentadas",
+        "detail": "Banco documentado en el repositorio público."
+      },
+      "visual": {
+        "path": "assets/tests-daw-practice.webp",
+        "kind": "screenshot",
+        "alt": "Modo práctica de Tests DAW con una respuesta, explicación y botón para continuar",
+        "caption": "Modo práctica con respuesta y explicación; recorte de una captura publicada."
+      }
+    },
+    {
+      "id": "f2p",
+      "title": "F2P",
+      "privacy": "public",
+      "category": "Archivo académico",
+      "tech": "Flask · PostgreSQL · Jinja · Docker · FreeToGame",
+      "links": [
+        {
+          "label": "Repositorio",
+          "url": "https://github.com/Prodelaya/Proyecto-DAW-Juegos-F2P"
+        },
+        {
+          "label": "Ver demo",
+          "url": "https://f2p.prodelaya.dev/"
+        }
+      ],
+      "landing": [
+        "Archivo de proyecto académico con catálogo de juegos, caché de FreeToGame, autenticación, biblioteca y administración.",
+        "Está construido con Flask, PostgreSQL, Jinja y Docker. La demo permite explorar el proyecto."
+      ],
+      "cvsummary": "Proyecto académico con Flask, PostgreSQL, Jinja, Docker y caché de FreeToGame."
     }
   ]
 }

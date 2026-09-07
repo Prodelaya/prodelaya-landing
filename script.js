@@ -1,9 +1,13 @@
 (() => {
-  const email = "proyectos.delaya@gmail.com";
   const copyButton = document.querySelector("[data-copy-email]");
   const status = document.querySelector(".copy-status");
+  const emailSource = document.querySelector(
+    "[data-email], a[href^='mailto:']",
+  );
+  const email =
+    emailSource?.dataset.email ?? emailSource?.href.replace(/^mailto:/, "");
 
-  if (!copyButton || !status) return;
+  if (!copyButton || !status || !email) return;
 
   copyButton.hidden = false;
 

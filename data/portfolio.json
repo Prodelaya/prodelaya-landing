@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "eyebrow": "Python · Automatización · Herramientas internas · IA aplicada",
+    "title": "Construyo software para mejorar cómo trabajan los equipos.",
+    "body": "Soy {{name}}, {{role_lower}} en {{location}}. Combino experiencia en operaciones y datos con software para conectar herramientas y reducir trabajo manual. En Halltic desarrollo integraciones y herramientas internas; fuera del trabajo diseño y opero Mugiwara."
+  },
+  "capabilities": [
+    {
+      "title": "Herramientas internas",
+      "body": "Software pensado para el equipo que lo usa y el proceso que necesita sostener."
+    },
+    {
+      "title": "Automatización e integración",
+      "body": "Conecto fuentes y reduzco pasos manuales con controles que se puedan revisar."
+    },
+    {
+      "title": "Datos y trazabilidad",
+      "body": "Normalizo, deduplico y dejo rastro de lo que ocurre para poder diagnosticarlo."
+    },
+    {
+      "title": "IA aplicada",
+      "body": "Asistentes, agentes y flujos con LLM cuando aportan una mejora concreta y supervisable."
+    }
+  ],
+  "method": [
+    "Entender el proceso y a las personas que lo usan.",
+    "Identificar la fricción que merece resolverse.",
+    "Elegir si conviene comprar, integrar o construir.",
+    "Probar una versión pequeña y útil.",
+    "Comprobar el resultado con el equipo.",
+    "Documentar y mantener lo que queda en uso."
+  ],
+  "primaryProjects": [
+    "mugi",
+    "crm",
+    "signature",
+    "auto-reddit"
+  ],
+  "secondaryProjects": [
+    "documents",
+    "employee-operations",
+    "private-data",
+    "tests-daw"
+  ],
+  "archiveProjects": [
+    "f2p"
+  ],
+  "cvProjectIds": [
+    "auto-reddit",
+    "mugi",
+    "tests-daw"
+  ],
+  "evidenceProjectIds": [
+    "mugi",
+    "crm",
+    "tests-daw",
+    "auto-reddit"
+  ]
+}

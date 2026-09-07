@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Pablo Laya · perfil profesional</title>
+  <desc id="desc">Desarrollador de software especializado en Automatización, herramientas internas e IA aplicada en Madrid, España.</desc>
+  <rect width="1200" height="630" fill="#251122"/>
+  <rect x="0" y="0" width="24" height="630" fill="#e34a74"/>
+  <circle cx="1040" cy="118" r="180" fill="#8c1d55" opacity=".55"/>
+  <path d="M76 432H1124" stroke="#f05a7e" stroke-width="4"/>
+  <g fill="#fff" font-family="Arial, sans-serif">
+    <text x="76" y="124" font-size="30" letter-spacing="4" fill="#f5a0b8">PRODELAYA.DEV</text>
+    <text x="76" y="250" font-size="70" font-weight="700">Pablo Laya</text>
+    <text x="76" y="326" font-size="38" font-weight="700" fill="#f5a0b8">Desarrollador de software</text>
+    <text x="76" y="380" font-size="28">Automatización, herramientas internas e IA aplicada</text>
+    <text x="76" y="506" font-size="28" fill="#f5a0b8">Madrid, España</text>
+  </g>
+</svg>

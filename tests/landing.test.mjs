@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
-import { execFileSync } from "node:child_process";
 import test from "node:test";
 
 const root = new URL("../", import.meta.url);
@@ -16,12 +15,21 @@ function publicFile(path) {
   return readFileSync(url, "utf8");
 }
 
+function caseHtml(id) {
+  const match = html.match(
+    new RegExp(`<article id="case-${id}"[\\s\\S]*?</article>`),
+  );
+  assert.ok(match, `falta el caso case-${id}`);
+  return match[0];
+}
+
 test("presenta navegación, CV y contacto utilizables sin JavaScript", () => {
   assert.match(html, /<a class="skip-link" href="#contenido">/);
+  assert.match(html, /<main id="contenido" tabindex="-1">/);
   assert.match(html, /<nav aria-label="Navegación principal">/);
-  for (const href of ["#casos", "#trayectoria", "#sobre-mi", "#contacto"]) {
+  for (const href of ["#casos", "#trayectoria", "#como-trabajo", "#contacto"])
     assert.ok(hrefs.includes(href), `falta el ancla ${href}`);
-  }
+  assert.match(html, /id="sobre-mi" class="anchor-alias"/);
   assert.match(html, /href="cv\.html"[^>]*>Ver CV</);
   assert.match(
     html,
@@ -30,42 +38,128 @@ test("presenta navegación, CV y contacto utilizables sin JavaScript", () => {
   assert.ok(hrefs.includes("mailto:proyectos.delaya@gmail.com"));
 });
 
-test("el héroe es personal y no conserva una vista de sistema", () => {
-  assert.match(html, /Soy Pablo Laya, desarrollador de software\./);
+test("posiciona la landing en automatización, herramientas internas e IA aplicada", () => {
+  const styles = publicFile("styles.css");
   assert.match(
     html,
-    /En Halltic trabajo en módulos de Odoo, integraciones y automatización/,
+    /Python · Automatización · Herramientas internas · IA aplicada/,
+  );
+  assert.match(
+    html,
+    /Construyo software para mejorar cómo trabajan los equipos\./,
+  );
+  assert.match(
+    html,
+    /Problemas de trabajo antes que una lista de tecnologías\./,
+  );
+  assert.match(
+    styles,
+    /\.hero \{\s+padding-top: clamp\(4rem, 7vw, 6rem\);\s+padding-bottom: clamp\(4rem, 7vw, 6rem\);/,
+  );
+  assert.match(
+    styles,
+    /h1 \{\s+max-width: 20ch;[\s\S]*?font-size: clamp\(2\.5rem, 5\.2vw, 4\.75rem\);[\s\S]*?line-height: 1\.08;/,
+  );
+  assert.match(
+    styles,
+    /@media \(max-width: 620px\) \{[\s\S]*?h1 \{\s+max-width: 100%;\s+font-size: clamp\(2\.25rem, 10vw, 2\.5rem\);\s+line-height: 1\.08;/,
   );
   assert.doesNotMatch(
-    html,
-    /system-preview|preview-topbar|role-list|vista de sistema/i,
+    styles,
+    /@supports \(\(-webkit-background-clip: text\) or \(background-clip: text\)\) \{\s+h1/,
   );
-  assert.doesNotMatch(html, /Software para automatizar trabajo real\./);
+  for (const title of [
+    "Herramientas internas",
+    "Automatización e integración",
+    "Datos y trazabilidad",
+    "IA aplicada",
+  ])
+    assert.match(html, new RegExp(`<h3>${title}</h3>`));
+  assert.doesNotMatch(html, /Python · Odoo · IA aplicada/);
 });
 
-test("muestra proyectos públicos, casos profesionales y demos independientes", () => {
-  assert.match(html, /Creé Mugiwara/);
-  assert.match(html, /dirijo su desarrollo con ayuda de IA/);
-  assert.match(html, /Firma de documentos con DNIe/);
-  assert.match(html, /Firma digital para RR\. HH\./);
-  assert.match(html, /AutoFirma/);
-  assert.match(html, /PAdES/);
-  assert.match(html, /clave privada.*dispositivo de la persona/s);
-
-  const pairs = [
+test("agrupa casos canónicos, evidencia y anclas estables", () => {
+  const factual = JSON.parse(publicFile("data/cv.json"));
+  const editorial = JSON.parse(publicFile("data/portfolio.json"));
+  assert.deepEqual(
+    factual.projects.map(({ id }) => id),
     [
-      "https://github.com/Prodelaya/proyecto-daw-tests",
-      "https://tests-daw.prodelaya.dev/",
+      "mugi",
+      "crm",
+      "signature",
+      "auto-reddit",
+      "documents",
+      "employee-operations",
+      "private-data",
+      "tests-daw",
+      "f2p",
     ],
-    [
-      "https://github.com/Prodelaya/Proyecto-DAW-Juegos-F2P",
-      "https://f2p.prodelaya.dev/",
-    ],
-  ];
-  for (const [repo, demo] of pairs) {
-    assert.ok(hrefs.includes(repo));
-    assert.ok(hrefs.includes(demo));
+  );
+  assert.deepEqual(editorial.primaryProjects, [
+    "mugi",
+    "crm",
+    "signature",
+    "auto-reddit",
+  ]);
+  assert.deepEqual(editorial.secondaryProjects, [
+    "documents",
+    "employee-operations",
+    "private-data",
+    "tests-daw",
+  ]);
+  assert.deepEqual(editorial.archiveProjects, ["f2p"]);
+  assert.deepEqual(editorial.evidenceProjectIds, [
+    "mugi",
+    "crm",
+    "tests-daw",
+    "auto-reddit",
+  ]);
+  for (const id of factual.projects.map(({ id }) => id))
+    assert.match(html, new RegExp(`id="case-${id}"`));
+  for (const project of factual.projects.filter(({ metric }) => metric)) {
+    assert.match(
+      html,
+      new RegExp(`href="#case-${project.id}"[\\s\\S]*?${project.metric.value}`),
+    );
   }
+  assert.match(
+    html,
+    /211\s*<span>preguntas documentadas<\/span>[\s\S]*?Banco documentado en el repositorio público/i,
+  );
+  assert.match(html, /revisión humana/i);
+  assert.match(html, /4\s*<span>proveedores implementados<\/span>/);
+  assert.match(html, /no todos los cron/i);
+});
+
+test("mantiene los casos nuevos sin enlaces y el caso privado sin terminología de corpus o mercado", () => {
+  const factual = JSON.parse(publicFile("data/cv.json"));
+  const newCases = factual.projects.filter(({ id }) =>
+    ["employee-operations", "private-data"].includes(id),
+  );
+  assert.equal(newCases.length, 2);
+  for (const project of newCases) assert.deepEqual(project.links, []);
+  assert.equal(newCases[0].privacy, "professional");
+  assert.equal(newCases[0].title, "Automatización de operaciones de empleados");
+  assert.equal(newCases[1].privacy, "private");
+  assert.equal(newCases[1].title, "Sistemas cuantitativos y de datos");
+  assert.match(newCases[1].tech, /PostgreSQL \(opcional\)/);
+  assert.doesNotMatch(
+    JSON.stringify(newCases[1]),
+    /corpus|mercado|apuestas|capital|yield|proveedor|host|redis|asyncio/i,
+  );
+  for (const project of newCases)
+    assert.doesNotMatch(caseHtml(project.id), /<a\b|https?:\/\//i);
+});
+
+test("limita los enlaces de los casos profesionales", () => {
+  const professionalCards = [
+    ...html.matchAll(
+      /<article id="case-[^"]+" class="case-card professional">([\s\S]*?)<\/article>/g,
+    ),
+  ].map((match) => match[1]);
+  assert.equal(professionalCards.length, 4);
+  for (const card of professionalCards)
+    assert.doesNotMatch(card, /<a\b|github\.com|<code\b/i);
   for (const href of hrefs.filter((href) => href.startsWith("https://"))) {
     const anchor = html.match(
       new RegExp(
@@ -79,224 +173,88 @@ test("muestra proyectos públicos, casos profesionales y demos independientes", 
   }
 });
 
-test("separa la gestión documental del CRM en casos profesionales concretos", () => {
-  const professionalCards = [
-    ...html.matchAll(
-      /<article class="case-card professional">([\s\S]*?)<\/article>/g,
-    ),
-  ].map((match) => match[1]);
-  assert.equal(professionalCards.length, 3);
-  for (const title of [
-    "Firma de documentos con DNIe",
-    "Gestión documental por proyecto",
-    "Integración de fuentes con el CRM",
-  ]) {
-    assert.match(html, new RegExp(title));
-  }
-  assert.doesNotMatch(html, /HubCRM/);
-});
-
-test("incluye una trayectoria de trabajo y formación con fechas confirmadas", () => {
-  assert.match(html, /<section[^>]+id="trayectoria"/);
-  assert.match(html, /<ol[^>]*reversed/);
-  for (const value of [
-    "Halltic Tech S.L.",
-    "Prácticas de desarrollo de software.",
-    "julio 2026–actualidad",
-    "febrero–mayo 2026",
-    "Sports Stats Solutions S.L.",
-    "junio 2019–octubre 2025",
-    "DAW · Jobie FP",
-    "2024–2026 · finalizado",
-    "DAM · Jobie FP",
-    "en curso",
-    "Máster en Desarrollo con IA · Big School",
-    "2025 · finalizado",
-  ]) {
-    assert.match(
-      html,
-      new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"),
-    );
-  }
-});
-
-test("genera un CV público coherente desde datos sanitizados", () => {
-  const data = JSON.parse(publicFile("data/cv.json"));
-  const cvHtml = publicFile("cv.html");
-  const cvCss = publicFile("cv.css");
-  assert.equal(data.profile.email, "proyectos.delaya@gmail.com");
-  assert.match(cvHtml, /Experiencia profesional/);
-  assert.match(cvHtml, /Formación/);
-  assert.match(cvHtml, /Competencias/);
-  assert.match(cvHtml, /Proyectos/);
-  assert.match(cvCss, /@media print/);
-  for (const item of [...data.experience, ...data.education]) {
-    assert.ok(cvHtml.includes(item.organization), item.organization);
-  }
-  assert.doesNotMatch(cvHtml, /título en trámite|TFM|pendiente/i);
-});
-
-test("el CV público se orienta a automatización e IA aplicada sin exponer estrategia privada", () => {
-  const data = JSON.parse(publicFile("data/cv.json"));
-  const cvHtml = publicFile("cv.html");
-  const pdf = new URL("assets/cv-pablo-laya.pdf", root);
-  const pdfText = execFileSync("pdftotext", ["-layout", pdf.pathname, "-"], {
-    encoding: "utf8",
-  });
-  const normalizedPdfText = pdfText.replace(/\s+/g, " ");
-
-  assert.equal(data.profile.role, "Desarrollador de automatización e IA aplicada");
-  assert.match(data.profile.summary, /desarrollador junior/i);
-  assert.match(data.profile.summary, /operaciones y datos/i);
-  assert.match(data.profile.summary, /Python y SQL/);
-  assert.match(data.profile.summary, /herramientas internas/i);
-  assert.doesNotMatch(data.profile.role, /Odoo/i);
-  assert.doesNotMatch(data.profile.summary, /Odoo/i);
-
-  assert.deepEqual(data.skills.map(([label]) => label), [
-    "Python e integraciones",
-    "Datos",
-    "Automatización e IA",
-    "Entorno y despliegue",
-    "Aplicaciones de negocio",
+test("solo inserta las visuales aprobadas con atributos seguros y diagrama profesional", () => {
+  const manifest = JSON.parse(publicFile("data/public-assets.json"));
+  const approved = manifest.assets.map(({ path }) => path).sort();
+  assert.deepEqual(approved, [
+    "assets/crm-pipeline.svg",
+    "assets/mugiwara-panel.webp",
+    "assets/tests-daw-practice.webp",
   ]);
-  assert.match(data.skills[0][1], /Python, FastAPI, REST APIs, integraciones/);
-  assert.match(data.skills[1][1], /SQL, PostgreSQL, MySQL, SQLite/);
-  assert.match(data.skills[2][1], /flujos con LLM, agentes \(proyectos propios\)/);
-  assert.equal(data.projects[0].name, "auto-reddit");
-  assert.match(data.projects[0].tech, /Python.*SQLite.*Docker.*LLM.*Telegram/);
-  assert.match(data.projects[0].summary, /revisión humana/i);
-  assert.equal(data.projects[1].name, "Mugiwara");
-  assert.match(data.projects[1].summary, /implementación asistida por IA/i);
-
-  assert.deepEqual(
-    data.experience.map(({ organization, role, dates }) => ({ organization, role, dates })),
-    [
-      {
-        organization: "Halltic Tech S.L.",
-        role: "Desarrollador de software",
-        dates: "julio 2026–actualidad",
-      },
-      {
-        organization: "Halltic Tech S.L.",
-        role: "Prácticas de desarrollo de software",
-        dates: "febrero–mayo 2026",
-      },
-      {
-        organization: "Sports Stats Solutions S.L.",
-        role: "Administrativo · automatización de procesos",
-        dates: "junio 2019–octubre 2025",
-      },
-    ],
-  );
-
-  for (const value of [
-    data.profile.role,
-    data.profile.summary,
-    ...data.experience.flatMap((item) => [item.organization, item.role, item.dates]),
-    ...data.skills.flatMap(([label, value]) => [label, ...value.split(", ")]),
-    ...data.projects.flatMap((item) => [item.name, item.tech, item.summary]),
-  ]) {
-    assert.ok(cvHtml.includes(value), `falta en HTML: ${value}`);
-    assert.ok(
-      normalizedPdfText.includes(value.replace(/\s+/g, " ")),
-      `falta en PDF: ${value}`,
-    );
+  const images = [...html.matchAll(/<img\b([^>]+)>/g)].map((match) => match[1]);
+  assert.equal(images.length, approved.length);
+  for (const attributes of images) {
+    const src = attributes.match(/\bsrc="([^"]+)"/)?.[1];
+    assert.ok(approved.includes(src), `visual no aprobada: ${src}`);
+    assert.match(attributes, /\balt="[^"]+"/);
+    assert.match(attributes, /\bwidth="\d+"/);
+    assert.match(attributes, /\bheight="\d+"/);
+    assert.match(attributes, /\bloading="lazy"/);
+    assert.match(attributes, /\bdecoding="async"/);
   }
-  for (const document of [cvHtml, pdfText]) {
+  assert.match(caseHtml("mugi"), /assets\/mugiwara-panel\.webp/);
+  assert.match(caseHtml("tests-daw"), /assets\/tests-daw-practice\.webp/);
+  assert.match(caseHtml("crm"), /assets\/crm-pipeline\.svg/);
+  for (const id of [
+    "signature",
+    "documents",
+    "employee-operations",
+    "private-data",
+  ])
+    assert.doesNotMatch(caseHtml(id), /<img\b/);
+  for (const id of ["crm", "signature", "documents", "employee-operations"]) {
+    const card = caseHtml(id);
+    if (id === "crm") assert.match(card, /assets\/crm-pipeline\.svg/);
+    else assert.doesNotMatch(card, /<img\b/);
+  }
+  assert.match(
+    html,
+    /Recorte de una captura pública del panel privado de Mugiwara\./,
+  );
+  assert.match(
+    html,
+    /Modo práctica con respuesta y explicación; recorte de una captura publicada\./,
+  );
+  assert.match(
+    html,
+    /Esquema conceptual del flujo, sin datos ni infraestructura del proyecto\./,
+  );
+});
+
+test("deriva la trayectoria y el correo público desde las fuentes compartidas", () => {
+  const data = JSON.parse(publicFile("data/cv.json"));
+  const script = publicFile("script.js");
+  for (const item of [...data.experience, ...data.education])
+    assert.ok(html.includes(item.dates), item.dates);
+  assert.match(html, /2026 · finalizado/);
+  assert.doesNotMatch(html, /2025 · finalizado/);
+  assert.match(html, /Cómo trabajo/);
+  assert.match(script, /\[data-email\]|mailto:/);
+  assert.doesNotMatch(script, /proyectos\.delaya@gmail\.com/);
+});
+
+test("no filtra material privado ni afirmaciones no aprobadas", () => {
+  const publicDocuments = [
+    html,
+    publicFile("cv.html"),
+    publicFile("data/cv.json"),
+    publicFile("data/portfolio.json"),
+    publicFile("data/public-assets.json"),
+  ];
+  for (const document of publicDocuments) {
     assert.doesNotMatch(
       document,
-      /salida en septiembre de 2027|disponibilidad inmediata|inglés oral|cron/i,
-    );
-  }
-});
-
-test("el CV web ofrece el PDF descargable y el PDF muestra la URL de LinkedIn", () => {
-  const data = JSON.parse(publicFile("data/cv.json"));
-  const cvHtml = publicFile("cv.html");
-  const cvCss = publicFile("cv.css");
-  const pdf = new URL("assets/cv-pablo-laya.pdf", root);
-  const linkedInUrl = decodeURI(data.profile.linkedin);
-
-  assert.match(
-    cvHtml,
-    /<a[^>]+href="assets\/cv-pablo-laya\.pdf"[^>]+\bdownload\b[^>]*>/,
-  );
-  assert.match(cvHtml, /Descargar CV/);
-  assert.match(cvHtml, /href="cv\.css"/);
-  assert.match(cvCss, /@media print/);
-  const text = execFileSync("pdftotext", ["-layout", pdf.pathname, "-"], {
-    encoding: "utf8",
-  });
-  assert.ok(
-    text.includes(linkedInUrl),
-    `falta la URL de LinkedIn: ${linkedInUrl}`,
-  );
-});
-
-test("el PDF del CV es un A4 textual y contiene datos públicos actuales", () => {
-  const pdf = new URL("assets/cv-pablo-laya.pdf", root);
-  assert.ok(existsSync(pdf), "el PDF del CV debe existir");
-  assert.match(readFileSync(pdf).subarray(0, 8).toString("ascii"), /^%PDF-/);
-  const info = execFileSync("pdfinfo", [pdf.pathname], { encoding: "utf8" });
-  const text = execFileSync("pdftotext", ["-layout", pdf.pathname, "-"], {
-    encoding: "utf8",
-  });
-  assert.match(info, /Pages:\s+1/);
-  for (const value of [
-    "Experiencia profesional",
-    "Formación",
-    "Competencias",
-    "Sports Stats Solutions S.L.",
-    "Halltic Tech S.L.",
-    "Máster en Desarrollo con IA",
-  ]) {
-    assert.match(text, new RegExp(value, "i"));
-  }
-  assert.doesNotMatch(text, /título en trámite|TFM|pendiente/i);
-});
-
-test("no filtra material privado, contactos descartados ni casos internos", () => {
-  const prohibited = [
-    "portfolio-material",
-    ".analysis",
-    "Estudiante de",
-    "autopublicación",
-    "autopublish",
-    "NO-GO",
-    "chatbot",
-    "RAG",
-    "CV actualizado disponible bajo solicitud",
-  ];
-  for (const value of prohibited) {
-    assert.doesNotMatch(html, new RegExp(value, "i"));
-  }
-  const cv = publicFile("cv.html");
-  const data = publicFile("data/cv.json");
-  for (const publicDocument of [html, cv, data]) {
-    assert.doesNotMatch(
-      publicDocument,
       /\+34|\bDNI\s*[:.]?\s*\d|fecha de nacimiento/i,
     );
     assert.doesNotMatch(
-      publicDocument,
+      document,
       /portfolio-material|\.analysis|drive\.google/i,
     );
+    assert.doesNotMatch(
+      document,
+      /salida en septiembre de 2027|disponibilidad inmediata/i,
+    );
+    assert.doesNotMatch(document, /autopublicación|autopublish|NO-GO|\bOCR\b/i);
   }
-  assert.doesNotMatch(html, /<img\b/i);
-  const professionalCards = [
-    ...html.matchAll(
-      /<article class="case-card professional">([\s\S]*?)<\/article>/g,
-    ),
-  ].map((match) => match[1]);
-  assert.equal(professionalCards.length, 3);
-  for (const card of professionalCards) {
-    assert.doesNotMatch(card, /<a\b|github\.com|<code\b/i);
-  }
-  assert.deepEqual(
-    hrefs.filter((href) =>
-      /portfolio-material|\.analysis|drive\.google/i.test(href),
-    ),
-    [],
-  );
+  assert.doesNotMatch(html, /eIDAS|versionado avanzado|portales públicos/i);
 });

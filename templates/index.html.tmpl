@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{seo_description}}">
+  <meta name="author" content="{{name}}">
+  <link rel="canonical" href="{{canonical_url}}">
+  <meta property="og:title" content="{{seo_title}}">
+  <meta property="og:description" content="{{seo_description}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{canonical_url}}">
+  <meta property="og:image" content="{{social_image}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{social_alt}}">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{seo_title}}">
+  <meta name="twitter:description" content="{{seo_description}}">
+  <meta name="twitter:image" content="{{social_image}}">
+  <meta name="twitter:image:alt" content="{{social_alt}}">
+  <title>{{seo_title}}</title>
+  {{json_ld}}
+  <link rel="icon" href="assets/favicon-16.png?v=1" sizes="16x16" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="{{name}}, inicio">PL<span aria-hidden="true">.</span></a>
+      <nav aria-label="Navegación principal">
+        <a href="#casos">Proyectos</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#como-trabajo">Cómo trabajo</a>
+        <a href="#contacto">Hablamos</a>
+      </nav>
+      <a class="nav-contact" href="mailto:{{email}}">Escribir</a>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <section class="hero section" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-copy">
+        <p class="eyebrow">{{hero_eyebrow}}</p>
+        <h1 id="hero-title">{{hero_title}}</h1>
+        <p class="lede">{{hero_body}}</p>
+        <div class="hero-actions" aria-label="Acciones principales">
+          <a class="button button-primary" href="cv.html">Ver CV</a>
+          <a class="button button-secondary" href="assets/cv-pablo-laya.pdf" download aria-label="Descargar CV en PDF">Descargar CV <span class="file-type">PDF</span></a>
+          <a class="text-action" href="#casos">Ver proyectos <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-links" aria-label="Perfiles profesionales">
+          <a href="{{github}}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="{{linkedin}}" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section capabilities-section" aria-labelledby="capabilities-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">En qué aporto</p><h2 id="capabilities-title">Problemas de trabajo antes que una lista de tecnologías.</h2></div>
+        <div class="capability-grid">{{capabilities}}</div>
+      </div>
+    </section>
+
+    <section class="section evidence-section" aria-labelledby="evidence-title">
+      <div class="container">
+        <p class="eyebrow">Evidencia de trabajo</p>
+        <h2 id="evidence-title">Hechos concretos, con contexto.</h2>
+        <div class="evidence-band">{{evidence}}</div>
+      </div>
+    </section>
+
+    <section class="section cases-section" id="casos" aria-labelledby="cases-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Proyectos</p><h2 id="cases-title">Casos profesionales y proyectos propios.</h2><p>En los casos profesionales describo el trabajo sin publicar código ni información interna.</p></div>
+        <div class="case-grid">{{primary_projects}}</div>
+        <div class="secondary-cases"><h3>Otros proyectos</h3><div class="case-grid secondary-grid">{{secondary_projects}}</div></div>
+        <details class="archive-cases"><summary>Archivo académico</summary><div class="case-grid secondary-grid">{{archive_projects}}</div></details>
+      </div>
+    </section>
+
+    <section class="section trajectory-section" id="trayectoria" aria-labelledby="trajectory-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Trayectoria</p><h2 id="trajectory-title">Experiencia y formación.</h2></div>
+        <div class="timeline-grid"><section aria-labelledby="work-title"><h3 id="work-title">Trabajo</h3><ol reversed>{{experience}}</ol></section><section aria-labelledby="education-title"><h3 id="education-title">Formación</h3><ol reversed>{{education}}</ol></section></div>
+      </div>
+    </section>
+
+    <section class="section method-section" id="como-trabajo" aria-labelledby="method-title">
+      <span id="sobre-mi" class="anchor-alias" aria-hidden="true"></span>
+      <div class="container about-layout"><p class="eyebrow">Cómo trabajo</p><div><h2 id="method-title">De una fricción concreta a una herramienta que se pueda mantener.</h2><ol class="method-list">{{method}}</ol></div></div>
+    </section>
+
+    <section class="section contact-section" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact-card"><div><p class="eyebrow">Hablamos</p><h2 id="contact-title">Puedes escribirme si quieres hablar de un proyecto o de una oportunidad de trabajo.</h2></div><div class="contact-actions"><a class="button button-primary" href="mailto:{{email}}" data-email="{{email}}">{{email}}</a><button class="copy-email" type="button" data-copy-email hidden>Copiar correo</button><p class="copy-status" aria-live="polite" aria-atomic="true"></p></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><span>{{name}}</span><div><a href="{{github}}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="{{mugiwara_github}}" target="_blank" rel="noopener noreferrer">GitHub Mugiwara</a><a href="{{linkedin}}" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
