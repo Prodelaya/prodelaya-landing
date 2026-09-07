@@ -1,0 +1,84 @@
+{
+  "profile": {
+    "name": "Pablo Laya",
+    "role": "Desarrollador de software",
+    "location": "Madrid, España",
+    "email": "proyectos.delaya@gmail.com",
+    "website": "prodelaya.dev",
+    "github": "github.com/Prodelaya",
+    "linkedin": "linkedin.com/in/pablo-laya-bol%C3%ADvar",
+    "summary": "Desarrollador de software con experiencia en módulos de Odoo, integraciones y automatización. Combino trabajo en aplicaciones empresariales con proyectos propios en Python y Linux."
+  },
+  "experience": [
+    {
+      "organization": "Halltic Tech S.L.",
+      "role": "Desarrollador de software",
+      "dates": "julio 2026–actualidad",
+      "details": [
+        "Desarrollo de módulos de Odoo e integraciones para procesos internos.",
+        "Trabajo en flujos de documentos, firma digital y gestión de permisos y estados.",
+        "Integración de fuentes externas con el CRM: normalización, deduplicación y registro de ejecuciones."
+      ]
+    },
+    {
+      "organization": "Halltic Tech S.L.",
+      "role": "Prácticas de desarrollo de software",
+      "dates": "febrero–mayo 2026",
+      "details": [
+        "Apoyo al desarrollo de aplicaciones y automatizaciones sobre Odoo.",
+        "Trabajo con documentación, procesos internos e integraciones."
+      ]
+    },
+    {
+      "organization": "Sports Stats Solutions S.L.",
+      "role": "Administrativo · automatización de procesos",
+      "dates": "junio 2019–octubre 2025",
+      "details": [
+        "Mantenimiento de datos en MySQL y trabajo administrativo de operaciones.",
+        "Herramientas puntuales con Python y Tkinter, incluida automatización de email a Telegram.",
+        "Informes y seguimiento con Power BI y Excel."
+      ]
+    }
+  ],
+  "skills": [
+    ["Desarrollo", "Python, Odoo, XML, JavaScript"],
+    ["APIs y servicios", "FastAPI, APIs, integraciones"],
+    ["Frontend", "React, TypeScript, Next.js"],
+    ["Datos", "SQL, MySQL, SQLite, Power BI, Excel"],
+    ["IA y entorno", "LLM, automatización, Linux, Docker, Git"]
+  ],
+  "education": [
+    {
+      "organization": "Big School",
+      "title": "Máster en Desarrollo con IA",
+      "dates": "2025 · finalizado"
+    },
+    {
+      "organization": "Jobie FP",
+      "title": "FP Superior en Desarrollo de Aplicaciones Web (DAW)",
+      "dates": "2024–2026 · finalizado"
+    },
+    {
+      "organization": "Jobie FP",
+      "title": "FP Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)",
+      "dates": "en curso"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Mugiwara",
+      "tech": "Linux · Hermes · Telegram",
+      "summary": "Concepción y diseño propios; dirección y revisión de una implementación asistida por IA. Sistema de diez agentes que utilizo en mi servidor Linux."
+    },
+    {
+      "name": "auto-reddit",
+      "tech": "Python · SQLite · Telegram",
+      "summary": "Herramienta personal que prepara borradores a partir de publicaciones técnicas para revisarlos antes de publicar."
+    },
+    {
+      "name": "Tests DAW y F2P",
+      "tech": "React · TypeScript · Flask · SQLAlchemy",
+      "summary": "Proyectos propios de aprendizaje con repositorios y demos públicas."
+    }
+  ]
+}
