@@ -115,8 +115,12 @@ def approved_visuals(asset_data: dict) -> dict[str, dict]:
         return visuals
 
 
-def render_case(project: dict, visuals: dict[str, dict]) -> str:
-        classes = "case-card" + (" professional" if project["privacy"] == "professional" else "")
+def render_case(project: dict, visuals: dict[str, dict], featured: bool = False) -> str:
+        classes = "case-card"
+        if featured:
+            classes += " featured"
+        if project["privacy"] == "professional":
+            classes += " professional"
         visual_html = ""
         visual = project.get("visual")
         if visual:
@@ -205,7 +209,7 @@ def build_index(cv_data: dict, portfolio: dict, asset_data: dict | None = None) 
         "linkedin": esc(profile["linkedin"]),
         "mugiwara_github": esc(profile["mugiwaraGithub"]),
         "hero_eyebrow": esc(portfolio["hero"]["eyebrow"]),
-        "hero_title": esc(portfolio["hero"]["title"]),
+        "hero_title": f'{esc(portfolio["hero"]["titleLead"])} <span class="hero-title-accent">{esc(portfolio["hero"]["titleEmphasis"])}</span>',
         "hero_body": esc(strict_substitute(portfolio["hero"]["body"], {
             "name": profile["name"],
             "role_lower": profile["role"].lower(),
@@ -216,9 +220,9 @@ def build_index(cv_data: dict, portfolio: dict, asset_data: dict | None = None) 
             for item in portfolio["capabilities"]
         ),
         "evidence": render_evidence(portfolio["evidenceProjectIds"], projects),
-        "primary_projects": "\n".join(render_case(project, visuals) for project in projects_for(portfolio["primaryProjects"], projects)),
-        "secondary_projects": "\n".join(render_case(project, visuals) for project in projects_for(portfolio["secondaryProjects"], projects)),
-        "archive_projects": "\n".join(render_case(project, visuals) for project in projects_for(portfolio["archiveProjects"], projects)),
+        "primary_projects": "\n".join(render_case(project, visuals, project["id"] in portfolio["featuredProjects"]) for project in projects_for(portfolio["primaryProjects"], projects)),
+        "secondary_projects": "\n".join(render_case(project, visuals, project["id"] in portfolio["featuredProjects"]) for project in projects_for(portfolio["secondaryProjects"], projects)),
+        "archive_projects": "\n".join(render_case(project, visuals, project["id"] in portfolio["featuredProjects"]) for project in projects_for(portfolio["archiveProjects"], projects)),
         "experience": render_timeline(cv_data["experience"], "experience"),
         "education": render_timeline(cv_data["education"], "education"),
         "method": "".join(f"<li>{esc(step)}</li>" for step in portfolio["method"]),

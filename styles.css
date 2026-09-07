@@ -26,7 +26,6 @@ html {
   scroll-padding-top: 5rem;
 }
 body {
-  min-width: 320px;
   margin: 0;
   color: var(--text);
   background:
@@ -150,9 +149,12 @@ h4 {
 h1 {
   max-width: 20ch;
   margin-bottom: 1.3rem;
-  color: var(--pink-soft);
+  color: var(--text);
   font-size: clamp(2.5rem, 5.2vw, 4.75rem);
   line-height: 1.08;
+}
+.hero-title-accent {
+  color: var(--pink-soft);
 }
 h2 {
   margin-bottom: 1rem;
@@ -295,7 +297,6 @@ h3 {
   background: var(--surface);
 }
 .case-card.featured {
-  grid-row: span 2;
   border-color: var(--accent-line);
   background: linear-gradient(
     145deg,
@@ -660,6 +661,15 @@ h3 {
   }
 }
 @media (max-width: 620px) {
+  html {
+    scroll-padding-top: 0;
+  }
+  .section[id] {
+    scroll-margin-top: 7rem;
+  }
+  #sobre-mi {
+    top: -7rem;
+  }
   .section {
     padding: 4rem 0;
   }

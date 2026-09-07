@@ -90,7 +90,7 @@
       "title": "Mugiwara — plataforma operativa multiagente",
       "privacy": "public",
       "category": "Proyecto personal",
-      "tech": "Linux · Hermes · Telegram · Engram · Honcho · Vault · Next.js · FastAPI · systemd · Tailscale",
+      "tech": "Linux · Docker · PostgreSQL · Redis · systemd · Tailscale · Next.js · FastAPI",
       "cvtech": "Linux · Next.js · FastAPI · Tailscale",
       "links": [
         {
@@ -103,10 +103,10 @@
         }
       ],
       "landing": [
-        "Diseñé la arquitectura, los roles, la memoria y los límites de acceso; también opero el sistema en Linux. Un equipo de agentes especializados apoya la implementación, la documentación y la revisión.",
-        "El ecosistema conecta panel Next.js/FastAPI, Hermes, Telegram, Engram, Honcho y Vault. Tailscale resuelve el acceso privado y systemd gestiona los servicios."
+        "Diseñé la arquitectura, los roles, la memoria, los permisos y los límites de exposición; además opero los servicios, la persistencia, los health checks y la recuperación del sistema.",
+        "La implementación está dirigida por IA; un equipo de agentes especializados apoya la documentación y la revisión."
       ],
-      "cvsummary": "Arquitectura y operación en Linux de una plataforma multiagente; los agentes apoyan implementación, documentación y revisión.",
+      "cvsummary": "Arquitectura y operación en Linux de una plataforma multiagente con implementación dirigida por IA.",
       "techGroups": [
         {
           "label": "Aplicación",
@@ -114,14 +114,13 @@
         },
         {
           "label": "Operación",
-          "value": "Linux · systemd · Tailscale"
+          "value": "Linux · Docker · PostgreSQL · Redis · systemd · Tailscale"
         }
       ],
-      "techDetail": "Agentes y memoria: Hermes · Telegram · Engram · Honcho · Vault",
       "metric": {
         "value": "10",
         "label": "agentes especializados",
-        "detail": "Arquitectura de usuario documentada."
+        "detail": "Arquitectura pública documentada."
       },
       "visual": {
         "path": "assets/mugiwara-panel.webp",
@@ -145,7 +144,7 @@
       "metric": {
         "value": "4",
         "label": "proveedores implementados",
-        "detail": "Adaptadores independientes; no todos los cron están activos."
+        "detail": "Adaptadores independientes y ejecuciones auditables."
       },
       "visual": {
         "path": "assets/crm-pipeline.svg",
@@ -171,7 +170,7 @@
       "id": "auto-reddit",
       "title": "auto-reddit",
       "privacy": "public",
-      "category": "Proyecto académico y personal",
+        "category": "Proyecto académico y personal aplicado a un flujo real",
       "tech": "Python · Pydantic · SQLite · Docker · LLM · Telegram",
       "links": [
         {
@@ -180,14 +179,16 @@
         }
       ],
       "landing": [
-        "Pipeline para seleccionar conversaciones técnicas, evaluarlas con LLM y preparar borradores de respuesta. Pydantic, SQLite y Docker ayudan a mantener el flujo repetible.",
-        "Los borradores llegan a Telegram antes de su publicación. La deduplicación y la entrega idempotente evitan repeticiones; no publica automáticamente."
+        "Desarrollado como proyecto académico para automatizar un flujo real de detección y preparación de contenido técnico.",
+        "Selecciona conversaciones técnicas, las evalúa con LLM y prepara borradores de respuesta; Pydantic, SQLite y Docker ayudan a mantener el flujo repetible.",
+        "Los borradores llegan a Telegram antes de su publicación. La deduplicación y la entrega idempotente evitan repeticiones; no publica automáticamente y requiere revisión humana.",
+        "El README público documenta el resultado del repositorio: 396 tests pasando y 4 skipped, con pruebas unitarias, integración operativa, CI e infraestructura."
       ],
       "cvsummary": "Pipeline con Python, Pydantic, SQLite, Docker y LLM que prepara borradores para revisión humana en Telegram; no publica automáticamente.",
       "metric": {
-        "value": "Programación opcional",
-        "label": "y revisión humana",
-        "detail": "Los borradores se revisan antes de publicar."
+        "value": "396",
+        "label": "tests pasando",
+        "detail": "Unitarios, integración operativa, CI e infraestructura."
       }
     },
     {
@@ -212,7 +213,7 @@
       "links": [],
       "landing": [
         "Al cerrar la jornada, comparé la asistencia con las horas reportadas para detectar excepciones y dejar una actividad para su revisión.",
-        "Construí recordatorios por Telegram con aplazamiento y reglas configurables; si no se resuelven las excepciones, el flujo aplica una programación de respaldo, conserva historial y evita duplicar actividades del responsable."
+        "Construí recordatorios por Telegram con aplazamiento y reglas configurables. Cuando falta un horario aplicable, el sistema utiliza una jornada de respaldo configurada, crea una actividad para revisión, conserva el historial y evita duplicar avisos al responsable."
       ],
       "cvsummary": "Automatización de operaciones de empleados con Odoo y recordatorios por Telegram."
     },
@@ -221,12 +222,12 @@
       "title": "Sistemas cuantitativos y de datos",
       "privacy": "private",
       "category": "Proyecto privado",
-      "tech": "Python · datos · deduplicación · PostgreSQL (opcional)",
+      "tech": "Python · pipelines de datos · deduplicación · trazabilidad",
       "links": [],
       "landing": [
-        "Diseñé un flujo de recogida y normalización de datos con identidad estable, reanudación y deduplicación para comparar ejecuciones de forma reproducible. El trabajo incluye planificación acotada, salidas trazables e integración opcional con PostgreSQL."
+        "Diseñé un flujo de recogida y normalización de datos con identidad estable, reanudación y deduplicación para comparar ejecuciones de forma reproducible. El trabajo incluye planificación acotada y salidas trazables."
       ],
-      "cvsummary": "Flujo de datos con identidad estable, reanudación, deduplicación e integración opcional con PostgreSQL."
+      "cvsummary": "Flujo de datos con identidad estable, reanudación, deduplicación y trazabilidad."
     },
     {
       "id": "tests-daw",
@@ -250,9 +251,9 @@
       ],
       "cvsummary": "Producto full stack con React, TypeScript, Express, Prisma y PostgreSQL para práctica y examen.",
       "metric": {
-        "value": "211",
-        "label": "preguntas documentadas",
-        "detail": "Banco documentado en el repositorio público."
+        "value": "+50",
+        "label": "usuarios acumulados",
+        "detail": "Práctica, examen, estadísticas, ranking y revisión de fallos."
       },
       "visual": {
         "path": "assets/tests-daw-practice.webp",

@@ -48,8 +48,8 @@
     <section class="hero section" id="inicio" aria-labelledby="hero-title">
       <div class="container hero-copy">
         <p class="eyebrow">Python · Automatización · Herramientas internas · IA aplicada</p>
-        <h1 id="hero-title">Construyo software para mejorar cómo trabajan los equipos.</h1>
-        <p class="lede">Soy Pablo Laya, desarrollador de software en Madrid, España. Combino experiencia en operaciones y datos con software para conectar herramientas y reducir trabajo manual. En Halltic desarrollo integraciones y herramientas internas; fuera del trabajo diseño y opero Mugiwara.</p>
+        <h1 id="hero-title">Construyo software para mejorar <span class="hero-title-accent">cómo trabajan los equipos.</span></h1>
+        <p class="lede">Soy Pablo Laya, desarrollador de software en Madrid, España. Combino experiencia en operaciones y datos con desarrollo de software para conectar herramientas, automatizar procesos y reducir trabajo manual. En Halltic desarrollo integraciones y herramientas internas; fuera del trabajo diseño y opero Mugiwara.</p>
         <div class="hero-actions" aria-label="Acciones principales">
           <a class="button button-primary" href="cv.html">Ver CV</a>
           <a class="button button-secondary" href="assets/cv-pablo-laya.pdf" download aria-label="Descargar CV en PDF">Descargar CV <span class="file-type">PDF</span></a>
@@ -75,19 +75,19 @@
         <h2 id="evidence-title">Hechos concretos, con contexto.</h2>
         <div class="evidence-band"><a class="evidence-item" href="#case-mugi">
           <strong>10 <span>agentes especializados</span></strong>
-          <span>Arquitectura de usuario documentada.</span>
+          <span>Arquitectura pública documentada.</span>
         </a>
 <a class="evidence-item" href="#case-crm">
           <strong>4 <span>proveedores implementados</span></strong>
-          <span>Adaptadores independientes; no todos los cron están activos.</span>
+          <span>Adaptadores independientes y ejecuciones auditables.</span>
         </a>
 <a class="evidence-item" href="#case-tests-daw">
-          <strong>211 <span>preguntas documentadas</span></strong>
-          <span>Banco documentado en el repositorio público.</span>
+          <strong>+50 <span>usuarios acumulados</span></strong>
+          <span>Práctica, examen, estadísticas, ranking y revisión de fallos.</span>
         </a>
 <a class="evidence-item" href="#case-auto-reddit">
-          <strong>Programación opcional <span>y revisión humana</span></strong>
-          <span>Los borradores se revisan antes de publicar.</span>
+          <strong>396 <span>tests pasando</span></strong>
+          <span>Unitarios, integración operativa, CI e infraestructura.</span>
         </a></div>
       </div>
     </section>
@@ -95,11 +95,11 @@
     <section class="section cases-section" id="casos" aria-labelledby="cases-title">
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Proyectos</p><h2 id="cases-title">Casos profesionales y proyectos propios.</h2><p>En los casos profesionales describo el trabajo sin publicar código ni información interna.</p></div>
-        <div class="case-grid"><article id="case-mugi" class="case-card">
+        <div class="case-grid"><article id="case-mugi" class="case-card featured">
           <div class="case-meta"><span>Proyecto personal</span></div>
           <h3>Mugiwara — plataforma operativa multiagente</h3>
-          <div class="case-tech-groups"><p><strong>Aplicación:</strong> Next.js · FastAPI.</p><p><strong>Operación:</strong> Linux · systemd · Tailscale.</p></div><details class="case-tech-detail"><summary>Agentes y memoria</summary><p>Agentes y memoria: Hermes · Telegram · Engram · Honcho · Vault</p></details>
-          <p>Diseñé la arquitectura, los roles, la memoria y los límites de acceso; también opero el sistema en Linux. Un equipo de agentes especializados apoya la implementación, la documentación y la revisión.</p><p>El ecosistema conecta panel Next.js/FastAPI, Hermes, Telegram, Engram, Honcho y Vault. Tailscale resuelve el acceso privado y systemd gestiona los servicios.</p>
+          <div class="case-tech-groups"><p><strong>Aplicación:</strong> Next.js · FastAPI.</p><p><strong>Operación:</strong> Linux · Docker · PostgreSQL · Redis · systemd · Tailscale.</p></div>
+          <p>Diseñé la arquitectura, los roles, la memoria, los permisos y los límites de exposición; además opero los servicios, la persistencia, los health checks y la recuperación del sistema.</p><p>La implementación está dirigida por IA; un equipo de agentes especializados apoya la documentación y la revisión.</p>
           <figure class="case-visual case-visual--screenshot">
           <img src="assets/mugiwara-panel.webp" alt="Panel de control de Mugiwara con navegación y tarjetas de estado" width="1200" height="784" loading="lazy" decoding="async">
           <figcaption>Recorte de una captura pública del panel privado de Mugiwara.</figcaption>
@@ -126,10 +126,10 @@
 
         </article>
 <article id="case-auto-reddit" class="case-card">
-          <div class="case-meta"><span>Proyecto académico y personal</span><span>Python · Pydantic · SQLite · Docker · LLM · Telegram</span></div>
+          <div class="case-meta"><span>Proyecto académico y personal aplicado a un flujo real</span><span>Python · Pydantic · SQLite · Docker · LLM · Telegram</span></div>
           <h3>auto-reddit</h3>
 
-          <p>Pipeline para seleccionar conversaciones técnicas, evaluarlas con LLM y preparar borradores de respuesta. Pydantic, SQLite y Docker ayudan a mantener el flujo repetible.</p><p>Los borradores llegan a Telegram antes de su publicación. La deduplicación y la entrega idempotente evitan repeticiones; no publica automáticamente.</p>
+          <p>Desarrollado como proyecto académico para automatizar un flujo real de detección y preparación de contenido técnico.</p><p>Selecciona conversaciones técnicas, las evalúa con LLM y prepara borradores de respuesta; Pydantic, SQLite y Docker ayudan a mantener el flujo repetible.</p><p>Los borradores llegan a Telegram antes de su publicación. La deduplicación y la entrega idempotente evitan repeticiones; no publica automáticamente y requiere revisión humana.</p><p>El README público documenta el resultado del repositorio: 396 tests pasando y 4 skipped, con pruebas unitarias, integración operativa, CI e infraestructura.</p>
 
           <div class="case-links"><a href="https://github.com/Prodelaya/auto-reddit" target="_blank" rel="noopener noreferrer">Repositorio <span aria-hidden="true">↗</span></a></div>
         </article></div>
@@ -145,15 +145,15 @@
           <div class="case-meta"><span>Trabajo profesional</span><span>Python · Odoo · Telegram</span></div>
           <h3>Automatización de operaciones de empleados</h3>
 
-          <p>Al cerrar la jornada, comparé la asistencia con las horas reportadas para detectar excepciones y dejar una actividad para su revisión.</p><p>Construí recordatorios por Telegram con aplazamiento y reglas configurables; si no se resuelven las excepciones, el flujo aplica una programación de respaldo, conserva historial y evita duplicar actividades del responsable.</p>
+          <p>Al cerrar la jornada, comparé la asistencia con las horas reportadas para detectar excepciones y dejar una actividad para su revisión.</p><p>Construí recordatorios por Telegram con aplazamiento y reglas configurables. Cuando falta un horario aplicable, el sistema utiliza una jornada de respaldo configurada, crea una actividad para revisión, conserva el historial y evita duplicar avisos al responsable.</p>
 
 
         </article>
 <article id="case-private-data" class="case-card">
-          <div class="case-meta"><span>Proyecto privado</span><span>Python · datos · deduplicación · PostgreSQL (opcional)</span></div>
+          <div class="case-meta"><span>Proyecto privado</span><span>Python · pipelines de datos · deduplicación · trazabilidad</span></div>
           <h3>Sistemas cuantitativos y de datos</h3>
 
-          <p>Diseñé un flujo de recogida y normalización de datos con identidad estable, reanudación y deduplicación para comparar ejecuciones de forma reproducible. El trabajo incluye planificación acotada, salidas trazables e integración opcional con PostgreSQL.</p>
+          <p>Diseñé un flujo de recogida y normalización de datos con identidad estable, reanudación y deduplicación para comparar ejecuciones de forma reproducible. El trabajo incluye planificación acotada y salidas trazables.</p>
 
 
         </article>

@@ -44,9 +44,14 @@ test("posiciona la landing en automatización, herramientas internas e IA aplica
     html,
     /Python · Automatización · Herramientas internas · IA aplicada/,
   );
+  const normalized = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+  assert.match(
+    normalized,
+    /Construyo software para mejorar cómo trabajan los equipos\./,
+  );
   assert.match(
     html,
-    /Construyo software para mejorar cómo trabajan los equipos\./,
+    /<h1 id="hero-title">Construyo software para mejorar <span class="hero-title-accent">cómo trabajan los equipos\.<\/span><\/h1>/,
   );
   assert.match(
     html,
@@ -64,9 +69,18 @@ test("posiciona la landing en automatización, herramientas internas e IA aplica
     styles,
     /@media \(max-width: 620px\) \{[\s\S]*?h1 \{\s+max-width: 100%;\s+font-size: clamp\(2\.25rem, 10vw, 2\.5rem\);\s+line-height: 1\.08;/,
   );
+  assert.match(styles, /h1 \{[\s\S]*?color: var\(--text\);/);
+  assert.match(
+    styles,
+    /\.hero-title-accent \{\s+color: var\(--pink-soft\);\s+\}/,
+  );
   assert.doesNotMatch(
     styles,
     /@supports \(\(-webkit-background-clip: text\) or \(background-clip: text\)\) \{\s+h1/,
+  );
+  assert.match(
+    styles,
+    /@media \(max-width: 620px\) \{[\s\S]*?html \{\s+scroll-padding-top: 0;\s+\}[\s\S]*?\.section\[id\] \{\s+scroll-margin-top: 7rem;\s+\}/,
   );
   for (const title of [
     "Herramientas internas",
@@ -117,18 +131,31 @@ test("agrupa casos canónicos, evidencia y anclas estables", () => {
   for (const id of factual.projects.map(({ id }) => id))
     assert.match(html, new RegExp(`id="case-${id}"`));
   for (const project of factual.projects.filter(({ metric }) => metric)) {
+    const metricValue = project.metric.value.replace(
+      /[.*+?^${}()|[\]\\]/g,
+      "\\$&",
+    );
     assert.match(
       html,
-      new RegExp(`href="#case-${project.id}"[\\s\\S]*?${project.metric.value}`),
+      new RegExp(`href="#case-${project.id}"[\\s\\S]*?${metricValue}`),
     );
   }
   assert.match(
     html,
-    /211\s*<span>preguntas documentadas<\/span>[\s\S]*?Banco documentado en el repositorio público/i,
+    /\+50\s*<span>usuarios acumulados<\/span>[\s\S]*?Práctica, examen, estadísticas, ranking y revisión de fallos\./i,
+  );
+  assert.match(
+    html,
+    /396\s*<span>tests pasando<\/span>[\s\S]*?Unitarios, integración operativa, CI e infraestructura\./i,
+  );
+  assert.match(
+    html,
+    /README público documenta el resultado del repositorio: 396 tests pasando y 4 skipped/i,
   );
   assert.match(html, /revisión humana/i);
   assert.match(html, /4\s*<span>proveedores implementados<\/span>/);
-  assert.match(html, /no todos los cron/i);
+  assert.doesNotMatch(html, /211\s*preguntas|211\s*<span>/i);
+  assert.match(html, /Adaptadores independientes y ejecuciones auditables\./);
 });
 
 test("mantiene los casos nuevos sin enlaces y el caso privado sin terminología de corpus o mercado", () => {
@@ -142,13 +169,59 @@ test("mantiene los casos nuevos sin enlaces y el caso privado sin terminología 
   assert.equal(newCases[0].title, "Automatización de operaciones de empleados");
   assert.equal(newCases[1].privacy, "private");
   assert.equal(newCases[1].title, "Sistemas cuantitativos y de datos");
-  assert.match(newCases[1].tech, /PostgreSQL \(opcional\)/);
+  assert.equal(
+    newCases[1].tech,
+    "Python · pipelines de datos · deduplicación · trazabilidad",
+  );
   assert.doesNotMatch(
     JSON.stringify(newCases[1]),
     /corpus|mercado|apuestas|capital|yield|proveedor|host|redis|asyncio/i,
   );
   for (const project of newCases)
     assert.doesNotMatch(caseHtml(project.id), /<a\b|https?:\/\//i);
+});
+
+test("destaca Mugiwara desde la configuración editorial sin desbalancear la cuadrícula", () => {
+  const editorial = JSON.parse(publicFile("data/portfolio.json"));
+  const styles = publicFile("styles.css");
+  assert.deepEqual(editorial.featuredProjects, ["mugi"]);
+  assert.match(
+    caseHtml("mugi"),
+    /<article id="case-mugi" class="case-card featured">/,
+  );
+  assert.doesNotMatch(styles, /\.case-card\.featured\s*\{[^}]*grid-row/);
+});
+
+test("publica el copy editorial acotado de los casos refinados", () => {
+  const factual = JSON.parse(publicFile("data/cv.json"));
+  const editorial = JSON.parse(publicFile("data/portfolio.json"));
+  const project = (id) => factual.projects.find((item) => item.id === id);
+
+  assert.match(
+    editorial.hero.body,
+    /Combino experiencia en operaciones y datos con desarrollo de software para conectar herramientas, automatizar procesos y reducir trabajo manual\./,
+  );
+  assert.equal(
+    project("mugi").techGroups[1].value,
+    "Linux · Docker · PostgreSQL · Redis · systemd · Tailscale",
+  );
+  assert.match(
+    caseHtml("mugi"),
+    /Diseñé la arquitectura, los roles, la memoria, los permisos y los límites de exposición; además opero los servicios, la persistencia, los health checks y la recuperación del sistema\./,
+  );
+  assert.match(caseHtml("mugi"), /La implementación está dirigida por IA;/);
+  assert.equal(
+    project("auto-reddit").category,
+    "Proyecto académico y personal aplicado a un flujo real",
+  );
+  assert.match(
+    caseHtml("employee-operations"),
+    /Cuando falta un horario aplicable, el sistema utiliza una jornada de respaldo configurada, crea una actividad para revisión, conserva el historial y evita duplicar avisos al responsable\./,
+  );
+  assert.doesNotMatch(
+    JSON.stringify(project("auto-reddit")),
+    /t\.me|telegram\.me/i,
+  );
 });
 
 test("limita los enlaces de los casos profesionales", () => {
@@ -257,4 +330,14 @@ test("no filtra material privado ni afirmaciones no aprobadas", () => {
     assert.doesNotMatch(document, /autopublicación|autopublish|NO-GO|\bOCR\b/i);
   }
   assert.doesNotMatch(html, /eIDAS|versionado avanzado|portales públicos/i);
+});
+
+test("no fuerza un ancho de 320px en cuerpos móviles más estrechos", () => {
+  const styles = publicFile("styles.css");
+  const cvStyles = publicFile("cv.css");
+  assert.doesNotMatch(styles, /(?:^|\n)body\s*\{[^}]*\bmin-width:\s*320px;/);
+  assert.doesNotMatch(
+    cvStyles,
+    /(?:^|\n)\.cv-body\s*\{[^}]*\bmin-width:\s*320px;/,
+  );
 });

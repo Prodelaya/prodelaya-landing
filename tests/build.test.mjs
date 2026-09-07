@@ -133,14 +133,15 @@ test("genera landing y CV desde contenido compartido, sin marcadores pendientes"
       /Automatización de operaciones de empleados|Sistemas cuantitativos y de datos/,
     );
     for (const output of [index, cv]) assert.doesNotMatch(output, /{{[^}]+}}/);
+    const normalizedIndex = index.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
     assert.match(
-      index,
+      normalizedIndex,
       /Construyo software para mejorar cómo trabajan los equipos\./,
     );
     assert.match(index, /Hechos concretos, con contexto\./);
     assert.match(
       index,
-      /href="#case-tests-daw"[\s\S]*?211\s*<span>preguntas documentadas<\/span>/,
+      /href="#case-tests-daw"[\s\S]*?\+50\s*<span>usuarios acumulados<\/span>/,
     );
     assert.match(index, /Cómo trabajo/);
     assert.match(index, /2026 · finalizado/);
@@ -285,7 +286,7 @@ cv = json.loads(Path("data/cv.json").read_text(encoding="utf-8"))
 portfolio = json.loads(Path("data/portfolio.json").read_text(encoding="utf-8"))
 assets = json.loads(Path("data/public-assets.json").read_text(encoding="utf-8"))
 changed = copy.deepcopy(cv)
-next(project for project in changed["projects"] if project["id"] == "tests-daw")["metric"]["value"] = "212"
+next(project for project in changed["projects"] if project["id"] == "tests-daw")["metric"]["value"] = "+51"
 print(module["build_index"](changed, portfolio, assets))
 `;
   withBuildFixture((fixture) => {
@@ -293,11 +294,36 @@ print(module["build_index"](changed, portfolio, assets))
       cwd: fixture,
       encoding: "utf8",
     });
-    assert.match(generated, /212\s*<span>preguntas documentadas<\/span>/);
-    assert.doesNotMatch(
+    assert.match(generated, /\+51\s*<span>usuarios acumulados<\/span>/);
+    assert.doesNotMatch(generated, /\+50\s*<span>usuarios acumulados<\/span>/);
+  });
+});
+
+test("escapa el énfasis editorial del titular antes de insertar el marcado", () => {
+  const program = String.raw`
+import copy
+import json
+import runpy
+from pathlib import Path
+module = runpy.run_path("scripts/build_cv.py")
+cv = json.loads(Path("data/cv.json").read_text(encoding="utf-8"))
+portfolio = json.loads(Path("data/portfolio.json").read_text(encoding="utf-8"))
+assets = json.loads(Path("data/public-assets.json").read_text(encoding="utf-8"))
+changed = copy.deepcopy(portfolio)
+changed["hero"]["titleLead"] = "Construyo <software"
+changed["hero"]["titleEmphasis"] = "cómo & trabajan"
+print(module["build_index"](cv, changed, assets))
+`;
+  withBuildFixture((fixture) => {
+    const generated = execFileSync("python3", ["-I", "-B", "-c", program], {
+      cwd: fixture,
+      encoding: "utf8",
+    });
+    assert.match(
       generated,
-      /211\s*<span>preguntas documentadas<\/span>/,
+      /<h1 id="hero-title">Construyo &lt;software <span class="hero-title-accent">cómo &amp; trabajan<\/span><\/h1>/,
     );
+    assert.doesNotMatch(generated, /Construyo <software|cómo & trabajan/);
   });
 });
 

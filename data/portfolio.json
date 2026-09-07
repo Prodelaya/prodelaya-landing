@@ -1,8 +1,9 @@
 {
   "hero": {
     "eyebrow": "Python · Automatización · Herramientas internas · IA aplicada",
-    "title": "Construyo software para mejorar cómo trabajan los equipos.",
-    "body": "Soy {{name}}, {{role_lower}} en {{location}}. Combino experiencia en operaciones y datos con software para conectar herramientas y reducir trabajo manual. En Halltic desarrollo integraciones y herramientas internas; fuera del trabajo diseño y opero Mugiwara."
+    "titleLead": "Construyo software para mejorar",
+    "titleEmphasis": "cómo trabajan los equipos.",
+    "body": "Soy {{name}}, {{role_lower}} en {{location}}. Combino experiencia en operaciones y datos con desarrollo de software para conectar herramientas, automatizar procesos y reducir trabajo manual. En Halltic desarrollo integraciones y herramientas internas; fuera del trabajo diseño y opero Mugiwara."
   },
   "capabilities": [
     {
@@ -55,5 +56,8 @@
     "crm",
     "tests-daw",
     "auto-reddit"
+  ],
+  "featuredProjects": [
+    "mugi"
   ]
 }
