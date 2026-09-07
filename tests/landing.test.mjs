@@ -136,6 +136,81 @@ test("genera un CV público coherente desde datos sanitizados", () => {
   assert.doesNotMatch(cvHtml, /título en trámite|TFM|pendiente/i);
 });
 
+test("el CV público se orienta a automatización e IA aplicada sin exponer estrategia privada", () => {
+  const data = JSON.parse(publicFile("data/cv.json"));
+  const cvHtml = publicFile("cv.html");
+  const pdf = new URL("assets/cv-pablo-laya.pdf", root);
+  const pdfText = execFileSync("pdftotext", ["-layout", pdf.pathname, "-"], {
+    encoding: "utf8",
+  });
+  const normalizedPdfText = pdfText.replace(/\s+/g, " ");
+
+  assert.equal(data.profile.role, "Desarrollador de automatización e IA aplicada");
+  assert.match(data.profile.summary, /desarrollador junior/i);
+  assert.match(data.profile.summary, /operaciones y datos/i);
+  assert.match(data.profile.summary, /Python y SQL/);
+  assert.match(data.profile.summary, /herramientas internas/i);
+  assert.doesNotMatch(data.profile.role, /Odoo/i);
+  assert.doesNotMatch(data.profile.summary, /Odoo/i);
+
+  assert.deepEqual(data.skills.map(([label]) => label), [
+    "Python e integraciones",
+    "Datos",
+    "Automatización e IA",
+    "Entorno y despliegue",
+    "Aplicaciones de negocio",
+  ]);
+  assert.match(data.skills[0][1], /Python, FastAPI, REST APIs, integraciones/);
+  assert.match(data.skills[1][1], /SQL, PostgreSQL, MySQL, SQLite/);
+  assert.match(data.skills[2][1], /flujos con LLM, agentes \(proyectos propios\)/);
+  assert.equal(data.projects[0].name, "auto-reddit");
+  assert.match(data.projects[0].tech, /Python.*SQLite.*Docker.*LLM.*Telegram/);
+  assert.match(data.projects[0].summary, /revisión humana/i);
+  assert.equal(data.projects[1].name, "Mugiwara");
+  assert.match(data.projects[1].summary, /implementación asistida por IA/i);
+
+  assert.deepEqual(
+    data.experience.map(({ organization, role, dates }) => ({ organization, role, dates })),
+    [
+      {
+        organization: "Halltic Tech S.L.",
+        role: "Desarrollador de software",
+        dates: "julio 2026–actualidad",
+      },
+      {
+        organization: "Halltic Tech S.L.",
+        role: "Prácticas de desarrollo de software",
+        dates: "febrero–mayo 2026",
+      },
+      {
+        organization: "Sports Stats Solutions S.L.",
+        role: "Administrativo · automatización de procesos",
+        dates: "junio 2019–octubre 2025",
+      },
+    ],
+  );
+
+  for (const value of [
+    data.profile.role,
+    data.profile.summary,
+    ...data.experience.flatMap((item) => [item.organization, item.role, item.dates]),
+    ...data.skills.flatMap(([label, value]) => [label, ...value.split(", ")]),
+    ...data.projects.flatMap((item) => [item.name, item.tech, item.summary]),
+  ]) {
+    assert.ok(cvHtml.includes(value), `falta en HTML: ${value}`);
+    assert.ok(
+      normalizedPdfText.includes(value.replace(/\s+/g, " ")),
+      `falta en PDF: ${value}`,
+    );
+  }
+  for (const document of [cvHtml, pdfText]) {
+    assert.doesNotMatch(
+      document,
+      /salida en septiembre de 2027|disponibilidad inmediata|inglés oral|cron/i,
+    );
+  }
+});
+
 test("el CV web ofrece el PDF descargable y el PDF muestra la URL de LinkedIn", () => {
   const data = JSON.parse(publicFile("data/cv.json"));
   const cvHtml = publicFile("cv.html");

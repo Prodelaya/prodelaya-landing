@@ -1,13 +1,13 @@
 {
   "profile": {
     "name": "Pablo Laya",
-    "role": "Desarrollador de software",
+    "role": "Desarrollador de automatización e IA aplicada",
     "location": "Madrid, España",
     "email": "proyectos.delaya@gmail.com",
     "website": "prodelaya.dev",
     "github": "github.com/Prodelaya",
     "linkedin": "linkedin.com/in/pablo-laya-bol%C3%ADvar",
-    "summary": "Desarrollador de software con experiencia en módulos de Odoo, integraciones y automatización. Combino trabajo en aplicaciones empresariales con proyectos propios en Python y Linux."
+    "summary": "Soy desarrollador junior y antes trabajé en operaciones y datos. Mi foco está en las automatizaciones, las integraciones y las herramientas internas con Python y SQL. Me interesa trabajar cerca de los equipos que las usan y aplicar IA cuando ayuda a resolver un problema concreto."
   },
   "experience": [
     {
@@ -15,9 +15,9 @@
       "role": "Desarrollador de software",
       "dates": "julio 2026–actualidad",
       "details": [
-        "Desarrollo de módulos de Odoo e integraciones para procesos internos.",
-        "Trabajo en flujos de documentos, firma digital y gestión de permisos y estados.",
-        "Integración de fuentes externas con el CRM: normalización, deduplicación y registro de ejecuciones."
+        "Fuentes múltiples para el CRM: integración en Python, normalización, deduplicación y registros de ejecución.",
+        "Herramientas internas en Odoo para documentación, permisos y estados.",
+        "Digitalización del circuito de documentos de RR. HH.: firma con AutoFirma, DNIe o certificado y PAdES."
       ]
     },
     {
@@ -34,18 +34,17 @@
       "role": "Administrativo · automatización de procesos",
       "dates": "junio 2019–octubre 2025",
       "details": [
-        "Mantenimiento de datos en MySQL y trabajo administrativo de operaciones.",
-        "Herramientas puntuales con Python y Tkinter, incluida automatización de email a Telegram.",
-        "Informes y seguimiento con Power BI y Excel."
+        "Trabajo administrativo de operaciones y mantenimiento de datos en MySQL; informes y seguimiento con Power BI y Excel.",
+        "Herramientas internas puntuales con Python y Tkinter, incluida automatización de email a Telegram."
       ]
     }
   ],
   "skills": [
-    ["Desarrollo", "Python, Odoo, XML, JavaScript"],
-    ["APIs y servicios", "FastAPI, APIs, integraciones"],
-    ["Frontend", "React, TypeScript, Next.js"],
-    ["Datos", "SQL, MySQL, SQLite, Power BI, Excel"],
-    ["IA y entorno", "LLM, automatización, Linux, Docker, Git"]
+    ["Python e integraciones", "Python, FastAPI, REST APIs, integraciones"],
+    ["Datos", "SQL, PostgreSQL, MySQL, SQLite"],
+    ["Automatización e IA", "pipelines, bots de Telegram, flujos con LLM, agentes (proyectos propios)"],
+    ["Entorno y despliegue", "Linux, Docker, Git"],
+    ["Aplicaciones de negocio", "Odoo, JavaScript, TypeScript, Power BI, Excel"]
   ],
   "education": [
     {
@@ -66,14 +65,14 @@
   ],
   "projects": [
     {
-      "name": "Mugiwara",
-      "tech": "Linux · Hermes · Telegram",
-      "summary": "Concepción y diseño propios; dirección y revisión de una implementación asistida por IA. Sistema de diez agentes que utilizo en mi servidor Linux."
+      "name": "auto-reddit",
+      "tech": "Python · SQLite · Docker · LLM · Telegram",
+      "summary": "Pipeline personal que selecciona publicaciones técnicas, prepara borradores de respuesta con LLM y los envía a Telegram para revisión humana. No publica automáticamente."
     },
     {
-      "name": "auto-reddit",
-      "tech": "Python · SQLite · Telegram",
-      "summary": "Herramienta personal que prepara borradores a partir de publicaciones técnicas para revisarlos antes de publicar."
+      "name": "Mugiwara",
+      "tech": "Linux · Hermes · Telegram · 10 agentes",
+      "summary": "Concepción y diseño propios de un sistema de diez agentes en Linux con Hermes y Telegram; dirección y revisión de una implementación asistida por IA."
     },
     {
       "name": "Tests DAW y F2P",
