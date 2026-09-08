@@ -10,7 +10,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R /Annots [7 0 R 8 0 R 9 0 R 10 0 R] >>
 endobj
 4 0 obj
-<< /Length 5258 >>
+<< /Length 5361 >>
 stream
 BT /F2 17 Tf 0.12 0.09 0.15 rg 48.0 800.0 Td (Pablo Laya) Tj ET
 BT /F2 10.5 Tf 0.42 0.06 0.27 rg 48.0 780.0 Td (Desarrollador de software) Tj ET
@@ -63,9 +63,10 @@ BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 286.0 Td (Pipeline con Python, Pydantic, SQL
 BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 274.5 Td (  Telegram; no publica automáticamente.) Tj ET
 BT /F2 10 Tf 0.12 0.09 0.15 rg 48.0 263.0 Td (Mugiwara — plataforma operativa multiagente) Tj ET
 BT /F1 10 Tf 0.42 0.06 0.27 rg 48.0 251.5 Td (Linux · Next.js · FastAPI · Tailscale) Tj ET
-BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 240.5 Td (Arquitectura y operación en Linux de una plataforma multiagente con implementación dirigida por IA.) Tj ET
-BT /F2 10 Tf 0.12 0.09 0.15 rg 48.0 229.0 Td (Tests DAW) Tj ET
-BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 217.5 Td (Producto full stack con React, TypeScript, Express, Prisma y PostgreSQL para práctica y examen.) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 240.5 Td (Arquitectura y operación en Linux de una plataforma multiagente, desarrollada mediante un flujo) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 229.0 Td (  intensivo de IA bajo criterios y controles propios.) Tj ET
+BT /F2 10 Tf 0.12 0.09 0.15 rg 48.0 217.5 Td (Tests DAW) Tj ET
+BT /F1 10 Tf 0.12 0.09 0.15 rg 48.0 206.0 Td (Producto full stack con React, TypeScript, Express, Prisma y PostgreSQL para práctica y examen.) Tj ET
 endstream
 endobj
 5 0 obj
@@ -93,14 +94,14 @@ xref
 0000000064 00000 n
 0000000121 00000 n
 0000000292 00000 n
-0000005601 00000 n
-0000005698 00000 n
-0000005800 00000 n
-0000005954 00000 n
-0000006096 00000 n
-0000006245 00000 n
+0000005704 00000 n
+0000005801 00000 n
+0000005903 00000 n
+0000006057 00000 n
+0000006199 00000 n
+0000006348 00000 n
 trailer
 << /Size 11 /Root 1 0 R >>
 startxref
-6414
+6517
 %%EOF

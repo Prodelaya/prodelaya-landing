@@ -104,9 +104,9 @@
       ],
       "landing": [
         "Diseñé la arquitectura, los roles, la memoria, los permisos y los límites de exposición; además opero los servicios, la persistencia, los health checks y la recuperación del sistema.",
-        "La implementación está dirigida por IA; un equipo de agentes especializados apoya la documentación y la revisión."
+        "La implementación se apoya intensivamente en IA y agentes especializados, bajo una arquitectura, límites y criterios definidos por mí."
       ],
-      "cvsummary": "Arquitectura y operación en Linux de una plataforma multiagente con implementación dirigida por IA.",
+      "cvsummary": "Arquitectura y operación en Linux de una plataforma multiagente, desarrollada mediante un flujo intensivo de IA bajo criterios y controles propios.",
       "techGroups": [
         {
           "label": "Aplicación",
@@ -182,7 +182,7 @@
         "Desarrollado como proyecto académico para automatizar un flujo real de detección y preparación de contenido técnico.",
         "Selecciona conversaciones técnicas, las evalúa con LLM y prepara borradores de respuesta; Pydantic, SQLite y Docker ayudan a mantener el flujo repetible.",
         "Los borradores llegan a Telegram antes de su publicación. La deduplicación y la entrega idempotente evitan repeticiones; no publica automáticamente y requiere revisión humana.",
-        "El README público documenta el resultado del repositorio: 396 tests pasando y 4 skipped, con pruebas unitarias, integración operativa, CI e infraestructura."
+        "Suite documentada: 396 tests pasando y 4 skipped, incluyendo pruebas unitarias, integración operativa, CI e infraestructura."
       ],
       "cvsummary": "Pipeline con Python, Pydantic, SQLite, Docker y LLM que prepara borradores para revisión humana en Telegram; no publica automáticamente.",
       "metric": {

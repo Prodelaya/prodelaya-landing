@@ -150,7 +150,7 @@ test("agrupa casos canónicos, evidencia y anclas estables", () => {
   );
   assert.match(
     html,
-    /README público documenta el resultado del repositorio: 396 tests pasando y 4 skipped/i,
+    /Suite documentada: 396 tests pasando y 4 skipped, incluyendo pruebas unitarias, integración operativa, CI e infraestructura\./i,
   );
   assert.match(html, /revisión humana/i);
   assert.match(html, /4\s*<span>proveedores implementados<\/span>/);
@@ -195,7 +195,14 @@ test("destaca Mugiwara desde la configuración editorial sin desbalancear la cua
 test("publica el copy editorial acotado de los casos refinados", () => {
   const factual = JSON.parse(publicFile("data/cv.json"));
   const editorial = JSON.parse(publicFile("data/portfolio.json"));
+  const cvHtml = publicFile("cv.html");
   const project = (id) => factual.projects.find((item) => item.id === id);
+  const mugiwaraAttribution =
+    "La implementación se apoya intensivamente en IA y agentes especializados, bajo una arquitectura, límites y criterios definidos por mí.";
+  const mugiwaraCvSummary =
+    "Arquitectura y operación en Linux de una plataforma multiagente, desarrollada mediante un flujo intensivo de IA bajo criterios y controles propios.";
+  const autoRedditSuite =
+    "Suite documentada: 396 tests pasando y 4 skipped, incluyendo pruebas unitarias, integración operativa, CI e infraestructura.";
 
   assert.match(
     editorial.hero.body,
@@ -209,11 +216,22 @@ test("publica el copy editorial acotado de los casos refinados", () => {
     caseHtml("mugi"),
     /Diseñé la arquitectura, los roles, la memoria, los permisos y los límites de exposición; además opero los servicios, la persistencia, los health checks y la recuperación del sistema\./,
   );
-  assert.match(caseHtml("mugi"), /La implementación está dirigida por IA;/);
+  assert.equal(project("mugi").landing.at(-1), mugiwaraAttribution);
+  assert.equal(project("mugi").cvsummary, mugiwaraCvSummary);
+  assert.ok(caseHtml("mugi").includes(mugiwaraAttribution));
+  assert.ok(cvHtml.includes(mugiwaraCvSummary));
+  for (const content of [
+    JSON.stringify(project("mugi")),
+    caseHtml("mugi"),
+    cvHtml,
+  ])
+    assert.doesNotMatch(content, /implementación (?:está )?dirigida por IA/i);
   assert.equal(
     project("auto-reddit").category,
     "Proyecto académico y personal aplicado a un flujo real",
   );
+  assert.equal(project("auto-reddit").landing.at(-1), autoRedditSuite);
+  assert.ok(caseHtml("auto-reddit").includes(autoRedditSuite));
   assert.match(
     caseHtml("employee-operations"),
     /Cuando falta un horario aplicable, el sistema utiliza una jornada de respaldo configurada, crea una actividad para revisión, conserva el historial y evita duplicar avisos al responsable\./,

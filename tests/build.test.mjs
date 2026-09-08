@@ -182,10 +182,18 @@ test("el PDF de una página conserva enlaces URI reales y contenido ajustado", (
     assert.match(info, /Pages:\s+1/);
     assert.match(info, /Page size:\s+595 x 842 pts \(A4\)/);
     assert.match(text, /Desarrollador de software/);
-    assert.match(text, /Automatización, herramientas internas e IA aplicada/);
-    assert.match(text, /Español nativo/);
-    assert.match(text, /autoevaluación/i);
-    for (const uri of [
+        assert.match(text, /Automatización, herramientas internas e IA aplicada/);
+        assert.match(text, /Español nativo/);
+        assert.match(text, /autoevaluación/i);
+        assert.match(
+          text.replace(/\s+/g, " "),
+          /Arquitectura y operación en Linux de una plataforma multiagente, desarrollada mediante un flujo intensivo de IA bajo criterios y controles propios\./,
+        );
+        assert.doesNotMatch(
+          text,
+          /implementación (?:está )?dirigida por IA/i,
+        );
+        for (const uri of [
       "mailto:proyectos.delaya@gmail.com",
       "https://prodelaya.dev",
       "https://github.com/Prodelaya",
