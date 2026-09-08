@@ -1,6 +1,6 @@
 # Portfolio de Pablo Laya
 
-Landing estática y CV público en español. Los HTML, el PDF, la tarjeta social y las cabeceras se generan desde los datos públicos para poder desplegarse sin una aplicación en ejecución.
+Portfolio estático y CV público en español de Pablo Laya, orientado a automatización, herramientas internas, datos e IA aplicada. Los HTML, el PDF, la tarjeta social y las cabeceras se generan desde los datos públicos para poder desplegarse sin una aplicación en ejecución.
 
 ## Actualizar y generar
 
