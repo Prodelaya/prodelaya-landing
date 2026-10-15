@@ -39,6 +39,6 @@ test("genera dos páginas con rutas canónicas, navegación y contacto OAuth", (
   assert.match(privacy, /nunca ha activado esa compartición voluntaria/);
   assert.match(privacy, /revisa personalmente este buzón/);
   assert.match(privacy, /no se ofrece atención continua ni respuesta automática/);
-  assert.match(privacy, /myaccount.google.com\/connections/);
+  assert.match(privacy, /href="https:\/\/myaccount\.google\.com\/connections"/);
   assert.match(read("index.html").match(/<article id="case-mugi"[\s\S]*?<\/article>/)?.[0] ?? "", /href="\/luffy-hermes\/"/);
 });
