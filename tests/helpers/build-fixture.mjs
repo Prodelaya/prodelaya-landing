@@ -22,10 +22,14 @@ const generatorInputs = [
   "data/portfolio.json",
   "data/public-assets.json",
   "templates/index.html.tmpl",
+  "templates/luffy-hermes.html.tmpl",
+  "templates/luffy-hermes-privacidad.html.tmpl",
 ];
 const publishedOutputs = [
   "index.html",
   "cv.html",
+  "luffy-hermes/index.html",
+  "luffy-hermes/privacidad/index.html",
   "assets/cv-pablo-laya.pdf",
   "assets/social-card.svg",
   "assets/social-card-1200x630.png",

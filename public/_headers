@@ -1,0 +1,5 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-BBTu2GWloXgZRZrtGDe3bNKQ0fuZlQSS482jFvw/sgM=' 'sha256-wiICxS6e5LSv5YMI5f41mwivSvCzOjyKND1XuBiDmwc=' 'sha256-BBTu2GWloXgZRZrtGDe3bNKQ0fuZlQSS482jFvw/sgM=' 'sha256-UR6zUUSELyl5fZ262S15w2n4gchuv+pzeeXVgEaJlLI='; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'

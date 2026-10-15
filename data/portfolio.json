@@ -1,4 +1,7 @@
 {
+  "applicationLinks": {
+    "mugi": {"label": "Luffy Hermes · información y privacidad", "path": "/luffy-hermes/"}
+  },
   "hero": {
     "eyebrow": "Python · Automatización · Herramientas internas · IA aplicada",
     "titleLead": "Construyo software para mejorar",
