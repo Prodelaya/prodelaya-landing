@@ -27,6 +27,10 @@ SOCIAL_PNG_PATH = ROOT / "assets" / "social-card-1200x630.png"
 ROBOTS_PATH = ROOT / "robots.txt"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 HEADERS_PATH = ROOT / "_headers"
+APPLICATION_PAGES = {
+    "/luffy-hermes/": "luffy-hermes.html.tmpl",
+    "/luffy-hermes/privacidad/": "luffy-hermes-privacidad.html.tmpl",
+}
 
 
 
@@ -115,7 +119,7 @@ def approved_visuals(asset_data: dict) -> dict[str, dict]:
         return visuals
 
 
-def render_case(project: dict, visuals: dict[str, dict], featured: bool = False) -> str:
+def render_case(project: dict, visuals: dict[str, dict], featured: bool = False, application_link: dict | None = None) -> str:
         classes = "case-card"
         if featured:
             classes += " featured"
@@ -146,6 +150,10 @@ def render_case(project: dict, visuals: dict[str, dict], featured: bool = False)
             tech_html = ""
         body = "".join(f"<p>{esc(paragraph)}</p>" for paragraph in project["landing"])
         links = "".join(external_link(link["label"], link["url"]) for link in project["links"])
+        if application_link:
+            if application_link["path"] not in APPLICATION_PAGES:
+                raise ValueError("Ruta de aplicación desconocida")
+            links += f'<a href="{esc(application_link["path"])}">{esc(application_link["label"])}</a>'
         links_html = f'  <div class="case-links">{links}</div>' if links else ""
         return f'''<article id="case-{esc(project["id"])}" class="{classes}">
           {meta}
@@ -220,7 +228,7 @@ def build_index(cv_data: dict, portfolio: dict, asset_data: dict | None = None) 
             for item in portfolio["capabilities"]
         ),
         "evidence": render_evidence(portfolio["evidenceProjectIds"], projects),
-        "primary_projects": "\n".join(render_case(project, visuals, project["id"] in portfolio["featuredProjects"]) for project in projects_for(portfolio["primaryProjects"], projects)),
+        "primary_projects": "\n".join(render_case(project, visuals, project["id"] in portfolio["featuredProjects"], portfolio.get("applicationLinks", {}).get(project["id"])) for project in projects_for(portfolio["primaryProjects"], projects)),
         "secondary_projects": "\n".join(render_case(project, visuals, project["id"] in portfolio["featuredProjects"]) for project in projects_for(portfolio["secondaryProjects"], projects)),
         "archive_projects": "\n".join(render_case(project, visuals, project["id"] in portfolio["featuredProjects"]) for project in projects_for(portfolio["archiveProjects"], projects)),
         "experience": render_timeline(cv_data["experience"], "experience"),
@@ -468,8 +476,8 @@ def csp_hashes(*documents: str) -> list[str]:
     return hashes
 
 
-def build_headers(index: str, cv_html: str) -> str:
-    hashes = " ".join(csp_hashes(index, cv_html))
+def build_headers(index: str, cv_html: str, *application_documents: str) -> str:
+    hashes = " ".join(csp_hashes(index, cv_html, *application_documents))
     csp = " ".join([
         "default-src 'self';",
         f"script-src 'self' {hashes};",
@@ -493,7 +501,7 @@ def build_robots(profile: dict) -> str:
 
 
 def build_sitemap(profile: dict) -> str:
-    urls = [canonical_url(profile, "/"), canonical_url(profile, "/cv")]
+    urls = [canonical_url(profile, route) for route in ("/", "/cv", *APPLICATION_PAGES)]
     return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n" + "".join(f"  <url><loc>{esc(url)}</loc></url>\n" for url in urls) + "</urlset>\n"
 
 
@@ -507,7 +515,12 @@ def main() -> None:
         pdf = build_pdf(cv_data, portfolio)
         social_svg = build_social_svg(cv_data["profile"])
         social_png = build_social_png(social_svg)
-        headers = build_headers(index, cv_html)
+        application_documents = {
+            route: strict_substitute((ROOT / "templates" / template).read_text(encoding="utf-8"),
+                                     {"canonical_url": esc(canonical_url(cv_data["profile"], route))})
+            for route, template in APPLICATION_PAGES.items()
+        }
+        headers = build_headers(index, cv_html, *application_documents.values())
         robots = build_robots(cv_data["profile"])
         sitemap = build_sitemap(cv_data["profile"])
     except (KeyError, TypeError, ValueError) as error:
@@ -520,6 +533,10 @@ def main() -> None:
     HEADERS_PATH.write_text(headers, encoding="utf-8")
     ROBOTS_PATH.write_text(robots, encoding="utf-8")
     SITEMAP_PATH.write_text(sitemap, encoding="utf-8")
+    for route, document in application_documents.items():
+        target = ROOT / route.lstrip("/") / "index.html"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(document, encoding="utf-8")
 
 
 if __name__ == "__main__":

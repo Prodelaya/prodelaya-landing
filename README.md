@@ -32,6 +32,27 @@ La canonical de la landing es `https://prodelaya.dev/` y la del CV es `https://p
 
 `www.prodelaya.dev` requiere una regla de redirección de dominio en la zona de Cloudflare, fuera de este repositorio: condición `http.host eq "www.prodelaya.dev"`, destino `https://prodelaya.dev/$1` preservando ruta y consulta. No se incluye `_redirects`, porque las redirecciones por ruta de Pages no resuelven de forma segura ese caso de dominio.
 
+## Luffy Hermes: páginas informativas
+
+Fuentes: `templates/luffy-hermes.html.tmpl` y `templates/luffy-hermes-privacidad.html.tmpl`; enlace del caso Mugiwara en `data/portfolio.json`. El mismo generador produce `luffy-hermes/index.html` y `luffy-hermes/privacidad/index.html`, con canonical `https://prodelaya.dev/luffy-hermes/` y `https://prodelaya.dev/luffy-hermes/privacidad/`. El sitemap contiene esas rutas. En Pages, los directorios con `index.html` conservan la barra final.
+
+Las páginas describen una aplicación personal sin registro público ni conexión de cuentas desde esta web. No declaran aprobación de Google ni cumplimiento certificado, ni cambian el modo OAuth Testing. La información de privacidad distingue las capacidades compartidas de la aplicación del seguimiento de Gmail de solo lectura, y explica el tratamiento externo, memoria, conservación por capas y contacto manual.
+
+La lista de publicación anterior se amplía únicamente con:
+- `luffy-hermes/index.html`
+- `luffy-hermes/privacidad/index.html`
+
+`scripts/public_site.py` mantiene la allowlist ejecutable completa. Exporta a un directorio nuevo; no copia la raíz, fuentes ni documentos privados. También ofrece vista previa local restringida, con las rutas canónicas y las cabeceras universales de `_headers` (no es un emulador completo de Pages ni un comando de despliegue):
+
+```bash
+python3 -I -B scripts/build_cv.py
+python3 -I -B scripts/public_site.py --output .git/oauth-preparation/public-preview --serve --port 8000
+```
+
+La vista previa escucha solo en `127.0.0.1`; se detiene con Ctrl+C. El directorio de salida debe ser nuevo. No uses `python -m http.server` en la raíz del repositorio. El despliegue debe tomar solo el directorio exportado, incluido `_headers`, nunca la raíz. Este script no configura el hosting ni activa un despliegue; la configuración source/build/output de Pages y el commit desplegado deben verificarse por separado.
+
+Las dos páginas nuevas reutilizan `cv.css` sin modificarlo, no cargan fuentes externas ni scripts y no requieren relajar la CSP. La allowlist del fixture incluye sus plantillas y resultados para comprobar regeneración sin escribir en el checkout. Las pruebas HTTP verifican assets, fragmentos, redirects, cabeceras, rutas desconocidas, ausencia de listado y rechazo de enlaces simbólicos.
+
 ## Enlaces públicos
 
 ```bash

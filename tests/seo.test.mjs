@@ -111,7 +111,7 @@ test("publica robots y sitemap solo con las rutas canónicas", () => {
       [
         ...readFixture(fixture, "sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g),
       ].map((match) => match[1]),
-      ["https://prodelaya.dev/", "https://prodelaya.dev/cv"],
+      ["https://prodelaya.dev/", "https://prodelaya.dev/cv", "https://prodelaya.dev/luffy-hermes/", "https://prodelaya.dev/luffy-hermes/privacidad/"],
     );
   });
 });
