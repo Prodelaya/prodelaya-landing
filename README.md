@@ -51,6 +51,21 @@ python3 -I -B scripts/public_site.py --output .git/oauth-preparation/public-prev
 
 La vista previa escucha solo en `127.0.0.1`; se detiene con Ctrl+C. El directorio de salida debe ser nuevo. No uses `python -m http.server` en la raíz del repositorio. El despliegue debe tomar solo el directorio exportado, incluido `_headers`, nunca la raíz. Este script no configura el hosting ni activa un despliegue; la configuración source/build/output de Pages y el commit desplegado deben verificarse por separado.
 
+### Publicación automática GitHub → Cloudflare Pages
+
+`wrangler.toml` fija `pages_build_output_dir = "./public"` para el proyecto existente `prodelaya-landing`. La salida se hereda en producción y previews, sin overrides de entorno. `public/` está versionado y contiene exclusivamente los 17 archivos de `PUBLIC_FILES`, copiados byte a byte con `scripts/public_site.py`; no necesita generar PDF/PNG ni ejecutar un build remoto. Fuentes, README, datos, tests y configuración quedan fuera del payload.
+
+Después de actualizar los resultados públicos, exporta a un directorio nuevo y reemplaza únicamente la copia anterior de `public/` con esa exportación revisada. Para la primera exportación (cuando `public/` no existe):
+
+```bash
+python3 -I -B scripts/public_site.py --output public
+python3 -I -B -m unittest discover -s tests -p 'test_pages_payload.py' -v
+```
+
+Las pruebas exigen la allowlist exacta, ausencia de symlinks y paridad binaria con los resultados públicos originales. Incluye la copia actualizada de `public/` en el mismo commit que sus fuentes. No copies la raíz ni informes/caches/material privado.
+
+[Cloudflare documenta](https://developers.cloudflare.com/pages/functions/wrangler-configuration/) la adopción de Wrangler mediante un nuevo despliegue de Git integration (build system V2 o posterior). Este archivo selecciona la salida; NO configura el build command ni los controles de ramas del panel. El payload preconstruido evita depender de un nuevo comando en ese panel. No se añaden Functions, bindings, variables, fechas de compatibilidad ni servicios. Comprueba el check de Pages del SHA, la URL de preview y después ambas canonical de producción: un 200 de fallback no acredita publicación. El merge normal a la rama de producción activa la integración existente; no hace falta un despliegue manual. Los despliegues históricos de otras revisiones no se reescriben.
+
 Las dos páginas nuevas reutilizan `cv.css` sin modificarlo, no cargan fuentes externas ni scripts y no requieren relajar la CSP. La allowlist del fixture incluye sus plantillas y resultados para comprobar regeneración sin escribir en el checkout. Las pruebas HTTP verifican assets, fragmentos, redirects, cabeceras, rutas desconocidas, ausencia de listado y rechazo de enlaces simbólicos.
 
 ## Enlaces públicos
